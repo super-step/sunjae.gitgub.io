@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="ko" class="h-100">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, 그리고 Bootstrap 기여자들">
+    <meta name="generator" content="Hugo 0.88.1">
+    <title>Cover Template · Bootstrap v5.1</title>
+
+    <link rel="canonical" href="https://getbootstrap.kr/docs/5.1/examples/cover/">
+
+    
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"  rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <!-- Favicons -->
+<link rel="apple-touch-icon" href="/docs/5.1/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="/docs/5.1/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/docs/5.1/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="manifest" href="/docs/5.1/assets/img/favicons/manifest.json">
+<link rel="mask-icon" href="/docs/5.1/assets/img/favicons/safari-pinned-tab.svg" color="#7952b3">
+<link rel="icon" href="/docs/5.1/assets/img/favicons/favicon.ico">
+<meta name="theme-color" content="#7952b3">
+
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+      canvas{display: block;
+
+}
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    
+    <!-- Custom styles for this template -->
+    <link href="cover.css" rel="stylesheet">
+  </head>
+  <body class="d-flex h-100 text-center text-white bg-dark">
+    
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+  <header class="mb-auto">
+    <div>
+      <h3 class="float-md-start mb-0">Cover</h3>
+      <nav class="nav nav-masthead justify-content-center float-md-end">
+        <a class="nav-link active" aria-current="page" href="#">Home</a>
+        <a class="nav-link" href="#">Features</a>
+        <a class="nav-link" href="#">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="px-3">
+    <h1>전국지도.</h1>
+    <p class="lead"></p>
+    <p class="lead">
+      <a href="#" class="btn btn-lg btn-secondary fw-bold border-white bg-white">Learn more</a>
+    </p>
+  </main>
+
+  <footer class="mt-auto text-white-50">
+    <p>Cover template for <a href="https://getbootstrap.com/" class="text-white">Bootstrap</a>, by <a href="https://twitter.com/mdo" class="text-white">@mdo</a>.</p>
+  </footer>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<img src="map/전국지도.png" usemap="#image-map">
+<canvas id="map-canvas"></canvas>
+
+<script>
+    var canvas = document.getElementById('map-canvas');
+    var context = canvas.getContext('2d');
+
+    // 폴리곤 좌표
+    var coords = [90, 357, 95, 366, 101, 369, 112, 365, 122, 354, 137, 362, 143, 366, 147, 376, 157, 372, 167, 377, 176, 374, 186, 374, 190, 385, 195, 396, 203, 408, 203, 418, 193, 424, 203, 432, 200, 443, 203, 458, 186, 452, 181, 432, 168, 430, 165, 441, 176, 457, 167, 466, 156, 469, 143, 460, 153, 449, 154, 438, 140, 443, 129, 452, 126, 465, 123, 474, 122, 499, 95, 502, 81, 499, 83, 463, 70, 466, 51, 472, 44, 450, 34, 430, 47, 410, 50, 390, 76, 376];
+
+    // 폴리곤 그리기
+    context.beginPath();
+    context.moveTo(coords[0], coords[1]);
+    for (var i = 2; i < coords.length; i += 2) {
+      context.lineTo(coords[i], coords[i + 1]);
+    }
+    context.closePath();
+
+    // 배경색 적용
+    context.fillStyle = 'yellow';
+    context.fill();
+  </script>
+
+
+
+
+<map name="image-map">
+    <area target="_blank" alt="전라남도" title="전라남도" href="https://search.naver.com/search.naver?where=nexearch&amp;sm=top_sug.pre&amp;fbm=0&amp;acr=1&amp;acq=%EC%A0%84%EB%9D%BC%EB%82%A8%EB%8F%84&amp;qdt=0&amp;ie=utf8&amp;query=%EC%A0%84%EB%9D%BC%EB%82%A8%EB%8F%84" coords="90,357,95,366,101,369,112,365,122,354,137,362,143,366,147,376,157,372,167,377,176,374,186,374,190,385,195,396,203,408,203,418,193,424,203,432,200,443,203,458,186,452,181,432,168,430,165,441,176,457,167,466,156,469,143,460,153,449,154,438,140,443,129,452,126,465,123,474,122,499,95,502,81,499,83,463,70,466,51,472,44,450,34,430,47,410,50,390,76,376" shape="poly">
+  </map> 
+</body>
+</html>
