@@ -1,0 +1,74 @@
+.red{
+    color: red;
+    background-color: yellow;
+    text-align: center;
+}
+.id{
+    margin: 100px;
+    padding: 100px;
+
+
+}
+
+
+.aaa{
+display: inline;
+}
+.border-blue{
+border: 5px solid blue ;
+}
+.img-size{
+    width: 200px; ;
+    height: 200px;
+}
+.boxsize{
+
+    border: 1px solid red;
+    text-align: center;
+}
+.block-element {
+    display: block;
+    background-color: lightblue;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .inline-element {
+    display: inline;
+    background-color: lightgreen;
+    padding: 10px;
+    margin-right: 10px;
+  }
+  
+  .inline-block-element {
+    display: inline-block;
+    background-color: lightyellow;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .flex-container {
+    display: flex;
+    justify-content: space-between;
+    background-color: lightpink;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .flex-item {
+    background-color: lightcoral;
+    padding: 10px;
+  }
+  
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background-color: lightgray;
+    padding: 10px;
+  }
+  
+  .grid-item {
+    background-color: lightseagreen;
+    padding: 10px;
+  }
+  

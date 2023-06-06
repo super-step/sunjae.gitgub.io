@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        #map-container {
+            position: relative;
+            max-width: 100%;
+            height: auto;
+        }
+
+        #map-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .custom-shape {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-color: red;
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body>
+    <div id="map-container">
+        <img id="map-image" src="image/map/12642952_751118305019513_784727258588215753_n.jpg" alt="Map" usemap="#image-map">
+
+        <map name="image-map">
+            <area target="_blank" alt="전남" title="전남" href="https://ko.wikipedia.org/wiki/전남" coords="117,594,47,657,11,745,12,822,140,852,322,806,312,684,290,631,217,623,195,661,144,651,152,630,182,629,204,642,205,595,164,587,139,612" shape="poly">
+            <area target="_blank" alt="전북" title="전북" href="https://ko.wikipedia.org/wiki/전북" coords="139,487,115,587,150,600,199,588,215,616,288,618,296,571,344,505,343,485,280,487,253,462,204,453" shape="poly">
+            <!-- 나머지 area 요소도 수정 -->
+        </map>
+
+        <div class="custom-shape"></div>
+    </div>
+    <script>
+       function updateAreaCoords() {
+    var image = document.querySelector('img');
+    var imageWidth = image.naturalWidth;
+    var imageHeight = image.naturalHeight;
+    var map = document.querySelector('map');
+    var areas = map.getElementsByTagName('area');
+
+    for (var i = 0; i < areas.length; i++) {
+        var originalCoords = areas[i].getAttribute('coords').split(',');
+        var adjustedCoords = '';
+
+        for (var j = 0; j < originalCoords.length; j++) {
+            if (j % 2 === 0) {
+                adjustedCoords += Math.round((originalCoords[j] / imageWidth) * 100) + '%';
+            } else {
+                adjustedCoords += Math.round((originalCoords[j] / imageHeight) * 100) + '%';
+            }
+
+            if (j < originalCoords.length - 1) {
+                adjustedCoords += ',';
+            }
+        }
+
+        areas[i].setAttribute('coords', adjustedCoords);
+    }
+}
+
+window.addEventListener('resize', updateAreaCoords);
+window.addEventListener('load', updateAreaCoords);
