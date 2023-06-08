@@ -1,0 +1,100 @@
+/* 본문 */
+
+section {
+  position: relative;
+  top: 120px;
+  display: flex;
+  z-index: -1;
+  justify-content: center;
+  border: 1px solid #000;
+}
+article {
+  position: absolute;
+  box-sizing: border-box;
+  overflow: hidden;
+  width: 800px;
+  height: 800px;
+}
+
+.map_container {
+  /*border: 7px solid #01b6e1;
+  background-color: #fff;*/
+  right: 100px;
+}
+.map_container img {
+  position: relative;
+  top: 20px;
+  left: 50px;
+  width: 700px;
+  color: white;
+}
+.whole_map div a {
+  z-index: 2;
+}
+
+.whole_map div img {
+  position: absolute;
+  opacity: 30%;
+  z-index: 1;
+}
+
+/*
+.jn_map img {
+  width: 33.5%;
+  top: 66.2%;
+  left: 11.4%;
+}
+.jn_map a {
+  position: absolute;
+  border: 1px solid #000;
+  width: 100px;
+  height: 50px;
+  top: 75%;
+  left: 25%;
+}
+.gj_map img {
+  width: 7.8%;
+  top: 70.9%;
+  left: 24.8%;
+}
+.jb_map img {
+  width: 25.4%;
+  top: 53.5%;
+  left: 22.6%;
+  filter: brightness(10);
+}
+.cn_map img {
+  width: 24.5%;
+  top: 34.8%;
+  left: 19.5%;
+}
+.cb_map img {
+  width: 24%;
+  top: 32.3%;
+  left: 38%;
+}
+.gn_map img {
+  width: 29%;
+  top: 59.4%;
+  left: 40.5%;
+}
+.gb_map img {
+  width: 29.2%;
+  top: 36.6%;
+  left: 46.6%;
+}
+.bs_map img {
+  width: 9.5%;
+  top: 71.2%;
+  left: 60.7%;
+}
+.us_map img {
+  width: 9.2%;
+  top: 65%;
+  left: 64.2%;
+}
+
+.whole_map div a:hover ~ img {
+  background-color: #000;
+}
+*/

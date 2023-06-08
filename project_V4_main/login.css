@@ -1,0 +1,7 @@
+article.login {
+  display: flex;
+  width: 70%;
+  height: 60%;
+  background-color: white;
+  border: 1px solid black;
+}
