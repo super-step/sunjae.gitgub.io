@@ -1,12 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap");
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: "Gowun Batang", serif;
+  font-size: 18px;
 }
-
+html {
+  width: 100vw;
+  height: 100vh;
+}
 body {
   position: relative;
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
 }
 body::before {
   content: "";
@@ -14,19 +22,23 @@ body::before {
   position: absolute;
   left: 0;
   top: 0;
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   background: url(../project_V4_main/image/image/background_img_16-9.jpg)
     no-repeat center fixed;
   background-size: cover;
-  opacity: 0.5;
+  opacity: 1;
   z-index: -1;
 }
 a {
   text-decoration: none;
   color: #222;
 }
-
+header {
+  display: block;
+  position: relative;
+  height: 8%;
+}
 /* 로고 */
 header img {
   position: relative;
@@ -65,7 +77,7 @@ label[for="cyy_ham_trigger"] {
 label[for="cyy_ham_trigger"] span {
   position: absolute;
   height: 3px;
-  background-color: rgb(0, 0, 0);
+  background-color: rgb(163, 163, 163);
   width: 100%;
   left: 0;
   transition: 0.3s;
@@ -110,11 +122,10 @@ input[id="cyy_ham_trigger"]:checked
   width: 2200px;
   position: absolute;
   padding-right: 100px;
-  top: -150px;
+  top: -90px;
   right: 0;
-
   padding: 15px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); */
   padding-bottom: 10px;
   transition: 0.3s;
 }
@@ -130,7 +141,9 @@ input[id="cyy_ham_trigger"]:checked
   text-align: center;
   position: relative;
   overflow: hidden;
-  color: #000;
+  border-bottom: 1px solid #6d6d6d;
+  padding: 0;
+  color: #464646;
 }
 
 .cyy_nav a:before,
@@ -147,8 +160,9 @@ input[id="cyy_ham_trigger"]:checked
 .cyy_nav a:after {
   top: 100%;
   left: 0;
-  color: #000;
-  background-color: #faf4c0;
+  color: #ffffff;
+  background-color: #007996;
+  border-radius: 15px 15px 0 0;
 }
 .cyy_nav a:hover:before {
   top: -100%;
@@ -164,17 +178,31 @@ input[id="cyy_ham_trigger"]:checked ~ .cyy_nav {
 /* 본문 */
 
 section {
-  position: relative;
-  top: 120px;
   display: flex;
+  position: relative;
+  width: 100%;
+  height: 90%;
   z-index: -1;
+  overflow: hidden;
+  text-align: center;
+  align-items: center;
   justify-content: center;
-  border: 1px solid #000;
 }
 article {
   position: absolute;
-  box-sizing: border-box;
   overflow: hidden;
-  width: 800px;
-  height: 800px;
+  width: 50%;
+  height: 50%;
+}
+footer {
+  position: fixed;
+  display: block;
+  width: 100%;
+  height: 2%;
+}
+footer p {
+  display: block;
+  text-align: center;
+  font-size: 13px;
+  font-style: italic;
 }
