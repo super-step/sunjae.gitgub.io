@@ -1,10 +1,11 @@
 /*가로가 긴 전체 흰박스 */
-.login_box_flex{
+.login_box_flex {
   display: flex;
-margin-top: 10%;
-margin-left: 18%;
+  margin-top: 10%;
+  margin-left: 18%;
   width: 60%;
   height: 60%;
+<<<<<<< HEAD
 background-color: white;
 border: 1px solid #7AC2E5;
 overflow: visible;
@@ -12,72 +13,81 @@ overflow: visible;
 }
 /*왼쪽 박스*/
 .login_box_left{
+=======
+  background-color: white;
+  border: 1px solid #7ac2e5;
+}
+/*왼쪽 박스*/
+.login_box_left {
+>>>>>>> f9ef32f21b9305f90fc9097a43269bfc7d6e859e
   background-color: white;
   width: 50%;
 }
 /*자전거 이미지*/
+<<<<<<< HEAD
 .login_box_right_img{
   margin-left: 20%;/*원래는 20%*/
 
 
+=======
+.login_box_right_img {
+  margin-left: 20%; /*원래는 20%*/
+>>>>>>> f9ef32f21b9305f90fc9097a43269bfc7d6e859e
 }
 /*여행발가락*/
-.login_box_left_teamname{
+.login_box_left_teamname {
   margin-top: 20%;
   margin-left: 38%;
-    font-size: 28px;
-    white-space: nowrap;/*두줄을 한줄로 만드는 코드*/
-  }
+  font-size: 28px;
+  white-space: nowrap; /*두줄을 한줄로 만드는 코드*/
+}
 
 /*id입력창*/
-.login_box_left_id{
-width: 300px;
-height: 50px;
-margin-top: 15%;
-margin-left:25%;
-font-size: 15px;
-border: 1px solid black;
+.login_box_left_id {
+  width: 300px;
+  height: 50px;
+  margin-top: 15%;
+  margin-left: 25%;
+  font-size: 15px;
+  border: 1px solid black;
 }
 
 /*password입력창*/
-.login_box_left_password{
-width: 300px;
-height: 50px;
-font-size: 15px;
-margin-left: 25%;
-margin-top: 1px;
-border: 1px solid black;
+.login_box_left_password {
+  width: 300px;
+  height: 50px;
+  font-size: 15px;
+  margin-left: 25%;
+  margin-top: 1px;
+  border: 1px solid black;
 }
 /*로그인 버튼*/
-.login_box_left_loginbutton{
+.login_box_left_loginbutton {
   width: 308px;
   height: 50px;
   margin-top: 8px;
   margin-left: 24.5%;
-  background-color: #7AC2E5;
+  background-color: #7ac2e5;
   border: 1px solid white;
 }
 
-
 /*회원가입, 아이디 비밀번호 찾기*/
-.login_box_left_text{
+.login_box_left_text {
   margin-top: 10px;
   display: inline-block;
-  }
-  
-  .login_box_left_text1{
-    margin-left: 150px;
-  }
-
-  .login_box_left_text2{
-    margin-left: 55px;
-  }
-
-
-/*오른쪽 파란 박스*/
-.login_box_right{
-  width: 50%;
-  height:100%;
-  background-color: #7AC2E5;
 }
 
+.login_box_left_text1 {
+  margin-left: 150px;
+}
+
+.login_box_left_text2 {
+  margin-left: 55px;
+}
+
+/*오른쪽 파란 박스*/
+.login_box_right {
+  width: 50%;
+  height: 100%;
+  background-color: #7ac2e5;
+}
