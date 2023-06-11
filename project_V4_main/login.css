@@ -7,17 +7,19 @@ margin-left: 18%;
   height: 60%;
 background-color: white;
 border: 1px solid #7AC2E5;
+overflow: visible;
 
 }
 /*왼쪽 박스*/
 .login_box_left{
-  background-color: #7AC2E5;
+  background-color: white;
   width: 50%;
 }
 /*자전거 이미지*/
 .login_box_right_img{
-  margin-left: 70%;/*원래는 20%*/
-  transition: 5s;
+  margin-left: 20%;/*원래는 20%*/
+
+
 }
 /*여행발가락*/
 .login_box_left_teamname{
