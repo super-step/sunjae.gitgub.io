@@ -5,34 +5,17 @@
   margin-left: 18%;
   width: 60%;
   height: 60%;
-<<<<<<< HEAD
-background-color: white;
-border: 1px solid #7AC2E5;
-overflow: visible;
-
-}
-/*왼쪽 박스*/
-.login_box_left{
-=======
   background-color: white;
   border: 1px solid #7ac2e5;
 }
 /*왼쪽 박스*/
 .login_box_left {
->>>>>>> f9ef32f21b9305f90fc9097a43269bfc7d6e859e
   background-color: white;
   width: 50%;
 }
 /*자전거 이미지*/
-<<<<<<< HEAD
-.login_box_right_img{
-  margin-left: 20%;/*원래는 20%*/
-
-
-=======
 .login_box_right_img {
   margin-left: 20%; /*원래는 20%*/
->>>>>>> f9ef32f21b9305f90fc9097a43269bfc7d6e859e
 }
 /*여행발가락*/
 .login_box_left_teamname {
@@ -40,6 +23,7 @@ overflow: visible;
   margin-left: 38%;
   font-size: 28px;
   white-space: nowrap; /*두줄을 한줄로 만드는 코드*/
+  transition: 1s;
 }
 
 /*id입력창*/
@@ -50,7 +34,13 @@ overflow: visible;
   margin-left: 25%;
   font-size: 15px;
   border: 1px solid black;
+  transition: 0.7s;
 }
+/* id입력창 hover */
+.login_box_left_id:focus{
+border-radius: 20px;
+}
+
 
 /*password입력창*/
 .login_box_left_password {
@@ -60,7 +50,15 @@ overflow: visible;
   margin-left: 25%;
   margin-top: 1px;
   border: 1px solid black;
+  transition: 0.7s;
 }
+.login_box_left_password:focus{
+  border-radius: 20px;
+}
+
+
+
+
 /*로그인 버튼*/
 .login_box_left_loginbutton {
   width: 308px;
@@ -69,12 +67,14 @@ overflow: visible;
   margin-left: 24.5%;
   background-color: #7ac2e5;
   border: 1px solid white;
+  transition: 0.7s;
 }
 
 /*회원가입, 아이디 비밀번호 찾기*/
 .login_box_left_text {
   margin-top: 10px;
   display: inline-block;
+  transition: 0.7s;
 }
 
 .login_box_left_text1 {

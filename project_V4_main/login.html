@@ -1,73 +1,61 @@
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>로그인페이지</title>
-    <link rel="stylesheet" href="main.css" />
-    <link rel="stylesheet" href="main_map.css" />
-    <link rel="stylesheet" href="login.css" />
-  </head>
 
-  <body>
-    <header>
-      <img src="image\footprint\발자국_simple.png" alt="" />
-      <div class="cyy_ham_container">
-        <input type="checkbox" id="cyy_ham_trigger" />
-        <label for="cyy_ham_trigger">
-          <span></span>
-          <span></span>
-          <span></span>
-        </label>
-        <nav class="cyy_nav">
-          <a href="#none" data-link="마이페이지"></a>
-          <a href="#none" data-link="환경설정"></a>
-          <a href="#none" data-link="개발자 소개"></a>
-          <a href="#none" data-link="로그인"></a>
-          <a href="#none" data-link="HOME"></a>
-        </nav>
-      </div>
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>로그인페이지</title>
+  <link rel="stylesheet" href="main.css" />
+  <link rel="stylesheet" href="main_map.css" />
+  <link rel="stylesheet" href="login.css" />
+</head>
 
-    <article class="login_box_flex">
-      <div class="login_box_left">
-        <div class="login_box_left_teamname">여행 발가락</div>
-        <div>
-          <input
-            class="login_box_left_id"
-            type="text"
-            name="id"
-            placeholder="로그인"
-          />
-        </div>
-        <div>
-          <input
-            class="login_box_left_password"
-            type="text"
-            name="id"
-            placeholder="비밀번호"
-          />
-        </div>
-        <!--로그인 비밀번호 끝 회원가입 아이디 찾기 시작-->
-        <button class="login_box_left_loginbutton">로그인</button>
+<body>
+  <header>
+    <img src="image\footprint\발자국_simple.png" alt="" />
+    <div class="cyy_ham_container">
+      <input type="checkbox" id="cyy_ham_trigger" />
+      <label for="cyy_ham_trigger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+      <nav class="cyy_nav">
+        <a href="#none" data-link="마이페이지"></a>
+        <a href="#none" data-link="환경설정"></a>
+        <a href="#none" data-link="개발자 소개"></a>
+        <a href="#none" data-link="로그인"></a>
+        <a href="#none" data-link="HOME"></a>
+      </nav>
+    </div>
+  </header>
 
-        <!--로그인 비밀번호 끝 회원가입 아이디 찾기 시작-->
-        <div class="login_box_left_text">
-          <a href="" class="login_box_left_text1"> 회원가입 </a>
-          <a href="" class="login_box_left_text2"> 아이디 | 비밀번호 찾기 </a>
-        </div>
+  <article class="login_box_flex">
+    <div class="login_box_left">
+      <div class="login_box_left_teamname">여행 발가락</div>
+      <div>
+        <input class="login_box_left_id" type="text" name="id" placeholder="로그인" />
       </div>
-      <!--왼쪽 박스 끝-->
-      <div class="login_box_right">
-        <img
-          class="login_box_right_img"
-          src="image/image/자전거.png"
-          alt="자전거 탄 남자 그림"
-        />
+      <div>
+        <input class="login_box_left_password" type="password" name="id" placeholder="비밀번호" />
       </div>
-      <!--오른쪽 박스 끝-->
-    </article>
-    <!--로그인 박스 끝-->
-  </body>
+      <!--로그인 비밀번호 끝 회원가입 아이디 찾기 시작-->
+      <button class="login_box_left_loginbutton">로그인</button>
+
+      <!--로그인 비밀번호 끝 회원가입 아이디 찾기 시작-->
+      <div class="login_box_left_text">
+        <a href="" class="login_box_left_text1"> 회원가입 </a>
+        <a href="" class="login_box_left_text2"> 아이디 | 비밀번호 찾기 </a>
+      </div>
+    </div>
+    <!--왼쪽 박스 끝-->
+    <div class="login_box_right">
+      <img class="login_box_right_img" src="image/image/자전거.png" alt="자전거 탄 남자 그림" />
+    </div>
+    <!--오른쪽 박스 끝-->
+  </article>
+  <!--로그인 박스 끝-->
+</body>
+
 </html>
