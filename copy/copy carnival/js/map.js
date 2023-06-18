@@ -53,5 +53,14 @@ for (var i = 0; i < positions.length; i++) {
     title: positions[i].name,
     image: markerImage, // 마커 이미지
   });
+
+
+
+
+
+
+
+
+  
 }
 marker.setMap(map);
