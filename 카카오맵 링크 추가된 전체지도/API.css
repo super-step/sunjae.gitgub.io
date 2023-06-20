@@ -38,7 +38,7 @@ article.API_map {
 }
 article.API_course {
   width: 1200px;
-  height: 40px;
+  height: 60px;
   /* border: 1px solid #000; */
 }
 #API_course_create {
@@ -47,9 +47,13 @@ article.API_course {
   border-radius: 10px;
   width: 300px;
   margin: 5px auto;
+  height: 50%;
   transition: 0.5s;
 }
 #API_course_create:hover {
   cursor: pointer;
   background-color: #26bbaa;
+  transition: 0.5s;
+  width: 400px;
+  height: 70%;
 }
