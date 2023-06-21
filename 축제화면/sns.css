@@ -1,0 +1,111 @@
+body::before {
+  filter: blur(2px);
+}
+section {
+  flex-direction: column;
+}
+article {
+  display: block;
+  position: static;
+}
+article.API_nav_container {
+  /* border: 1px dotted #000; */
+  width: 1200px;
+  height: 80px;
+}
+article.API_nav_container ul {
+  display: flex;
+  justify-content: center;
+}
+li.API_nav_item {
+  top: center;
+  list-style: none;
+  margin: 1.5rem 1.7rem;
+  font-size: 21px;
+  font-weight: bold;
+  transition: 0.2s;
+}
+li.API_nav_item:hover {
+  color: #26bbaa;
+  border-bottom: 2px solid #b1b1b1;
+  cursor: pointer;
+}
+
+article.sns_container {
+  /* border: 1px dotted #000; */
+  width: 1200px;
+  height: 700px;
+  display: flex;
+}
+div.sns_map,
+div.sns_contents {
+  background-color: #ffffff46;
+  /* border: 1px solid #000; */
+  width: 580px;
+  height: 700px;
+}
+div.sns_contents {
+  overflow: scroll;
+  margin-left: auto;
+  border: 10px solid #ffffff8a;
+  display: flex;
+  flex-wrap: wrap;
+}
+div.sns_contents::-webkit-scrollbar {
+  display: none;
+}
+div.sns_post {
+  position: relative;
+  margin: 20px;
+  /* border: 1px solid #000; */
+  background-color: #fff;
+  width: 240px;
+  height: 350px;
+}
+div.sns_post_pic {
+  overflow: hidden;
+  display: flex;
+  /* border: 1px solid #000000; */
+  align-items: center;
+  margin: 10px 15px;
+  width: 210px;
+  height: 280px;
+  background-color: #dbdbdb;
+}
+div.sns_post_pic img {
+  top: 0;
+  left: 0;
+  width: inherit;
+}
+div.sns_post_profile {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  /* background-color: #803c3c; */
+  /* border: 1px solid #000; */
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin: 0px 5px 0px 15px;
+  padding: 0;
+}
+div.sns_post_profile img {
+  position: absolute;
+  width: inherit;
+  top: 0;
+  left: 0;
+}
+div.sns_post_title {
+  position: relative;
+  display: inline-block;
+  /* border: 1px solid #000; */
+  /* background-color: #e6e6e6; */
+  width: 159px;
+  height: 40px;
+  margin-right: 15px;
+}
+div.sns_post_title h1 {
+  position: absolute;
+  font-size: 16px;
+  margin: 7px 10px;
+}
