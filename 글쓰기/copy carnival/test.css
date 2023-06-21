@@ -1,0 +1,18 @@
+#textAreaContainer {
+    display: none;
+  }
+  .sns_document_button{
+    background-color: aqua;
+    border-radius: 15%;
+    transition: 1s;
+    width: 3%;
+}
+.sns_document_button:hover{
+    background-color: coral;
+    width: 10%;
+    
+  }
+  #text{
+background-color: rgb(red, green, blue 0.7);
+
+  }
