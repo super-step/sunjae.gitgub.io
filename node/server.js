@@ -4,7 +4,6 @@ const fs = require('fs');
 
 let contentArray = [];
 
-// 기존 JSON 파일 읽기
 fs.readFile('data.json', (err, data) => {
   if (err) {
     console.error('JSON 파일을 읽을 수 없습니다.', err);
@@ -18,25 +17,28 @@ app.use(express.json());
 app.use(express.static('public'));
 
 app.post('/addContent', (req, res) => {
-  let newContent = req.body.content;
-  let newMkseq = req.body.mkseq;
+  const newContent = req.body.content;
+  const newMkseq = req.body.mkseq;
 
-  // 줄바꿈 문자 제거
-  newContent = newContent.trim();
-  newMkseq = newMkseq.trim();
+  const trimmedContent = newContent.trim();
+  const trimmedMkseq = newMkseq.trim();
 
-  // 새로운 객체로 내용 추가
-  const newObject = {
-    content: newContent,
-    mkseq: newMkseq
-  };
+  const newObject = {};
+
+  if (trimmedContent) {
+    newObject.content = trimmedContent;
+  }
+
+  if (trimmedMkseq) {
+    newObject.mkseq = trimmedMkseq;
+  }
 
   contentArray.push(newObject);
 
-  // 업데이트된 JSON 파일 저장
   fs.writeFile('data.json', JSON.stringify(contentArray), (err) => {
     if (err) {
       console.error('JSON 파일을 저장할 수 없습니다.', err);
+      res.status(500).send('내용을 추가하는 중에 오류가 발생했습니다.');
       return;
     }
     res.send('내용이 추가되었습니다.');
