@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="./mypage.css" />
+    <script src="../js/main.js"></script>
+    <title>여행발자국</title>
+  </head>
+  <body>
+    <header>
+      <img src="..\image\footprint\발자국_simple.png" alt="" />
+      <div class="cyy_ham_container">
+        <input type="checkbox" id="cyy_ham_trigger" />
+        <label for="cyy_ham_trigger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+        <nav class="cyy_nav">
+          <a id="logout" data-link="로그아웃"></a>
+          <a id="mypage" data-link="마이페이지"></a>
+          <a id="login" data-link="로그인"></a>
+          <a id="profile" data-link="개발자 소개"></a>
+          <a id="home" data-link="HOME"></a>
+        </nav>
+      </div>
+    </header>
+    <section>
+      <article class="map_container"></article>
+    </section>
+    <article id="my_container">
+      <!-- 마이패이지 화면 -->
+      <section id="my_box">
+        <div id="my_title"><h2>마이페이지</h2></div>
+        <div id="my_content">
+          <div id="my_side">이미지 닉네임 로그아웃버튼</div>
+          <div id="my_body">
+            <div id="my_setting">
+              <h2>기본설정</h2>
+              <div class="my_conbox"></div>
+            </div>
+            <div id="my_posts">
+              <h2>글관리</h2>
+              <div class="my_conbox"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </article>
+    <footer>
+      <p>CopyRight &copy; dbsdudsw@icloud.com</p>
+    </footer>
+  </body>
+</html>
