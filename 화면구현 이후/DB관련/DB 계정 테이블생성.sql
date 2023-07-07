@@ -72,19 +72,67 @@ spi_uri	VARCHAR(100)	NOT NULL,
 spi_cdate	VARCHAR(10)	NOT NULL,	
 spi_spseq	BIGINT	NOT NULL	
 );
-ALTER TABLE tb_snsimg
-ADD FOREIGN KEY (spi_spseq) REFERENCES tb_snspost(sp_seq);
+-- ALTER TABLE tb_snsimg
+-- ADD FOREIGN KEY (spi_spseq) REFERENCES tb_snspost(sp_seq);
 
 
 
 -- 하트
--- CREATE TABLE tb_snsheart();
+CREATE TABLE tb_snsheart(
+sh_spseq	BIGINT,
+sh_mbseq	BIGINT	NOT NULL,
+PRIMARY KEY(sh_spseq,sh_mbseq)
+);
+-- ALTER TABLE tb_snsheart
+-- ADD FOREIGN KEY (sh_spseq) REFERENCES tb_snspost(sp_seq);
+-- ALTER TABLE tb_snsheart
+-- ADD FOREIGN KEY (sh_mbseq) REFERENCES tb_member(mb_seq);
+
+-- DESC tb_snsheart;
+
+
 -- 좋아하는 발가락
--- CREATE TABLE tb_follow();
+CREATE TABLE tb_follow(
+fol_seq	BIGINT	AUTO_INCREMENT	PRIMARY KEY,
+followin	BIGINT	NOT NULL	NOT NULL,
+follower	BIGINT	NOT NULL	NOT NULL
+);
+
+-- ALTER TABLE tb_follow
+-- ADD FOREIGN KEY (sh_spseq) REFERENCES tb_member(mb_seq);
+-- ALTER TABLE tb_follow
+-- ADD FOREIGN KEY (sh_mbseq) REFERENCES tb_member(mb_seq);
+
+
+
+
 -- 회원
--- CREATE TABLE tb_member();
+CREATE TABLE tb_member(
+mb_seq	BIGINT	AUTO_INCREMENT	PRIMARY KEY,
+mb_id	VARCHAR(30)	NOT NULL,	
+mb_password	VARCHAR(100)	NOT NULL,	
+mb_nick	VARCHAR(10)	NOT NULL,	
+mb_proimg	VARCHAR(100),		
+mb_name	VARCHAR(20)	NOT NULL,	
+mb_birth	VARCHAR(10)	NOT NULL,	
+mb_tel	VARCHAR(12)	NOT NULL,	
+mb_email	VARCHAR(40)	NOT NULL,	
+mb_addr	VARCHAR(200)		
+);
 -- sns코멘트
--- CREATE TABLE tb_snscom();
+CREATE TABLE tb_snscom(
+sc_spseq	BIGINT,		
+sc_mbseq	BIGINT,	
+sc_tnick	VARCHAR(10)	NOT NULL,
+sc_content	VARCHAR(200)	NOT NULL,	
+sc_cdate	VARCHAR(10)	NOT NULL,
+sc_mdate	VARCHAR(10)	NOT NULL,	
+PRIMARY KEY(sc_spseq,sc_mbseq)
+);
+-- ALTER TABLE tb_snscom
+-- ADD FOREIGN KEY (sc_spseq) REFERENCES tb_member(mb_seq);
+-- ALTER TABLE tb_snscom
+-- ADD FOREIGN KEY (sc_mbseq) REFERENCES tb_snspost(sp_seq);
 
 
 
