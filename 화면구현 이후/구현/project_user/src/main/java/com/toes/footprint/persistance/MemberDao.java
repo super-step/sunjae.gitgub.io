@@ -10,6 +10,8 @@ public interface MemberDao {
 	@Select(" SELECT * FROM tb_member WHERE mb_id = #{mb_id} ")
 	public String findjoinbyid(); 
 	
+	
+	
 	public int insert(MemberDto memberDto);
 	
 //	아이디 찾기 
@@ -19,4 +21,8 @@ public interface MemberDao {
 //	비밀번호 찾기(미정) 
 	public MemberDto findByPassword(String password);
 
+	
+//	테이블 생성 
+	public void creat_member_table(String dumy);
+	
 }

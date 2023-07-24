@@ -22,10 +22,6 @@ public class MemberServiceImplV1 implements MemberService {
 //		나중에 duplication 문자열이 있다면 사용할수 없는 메세지라 표시할 것
 	@Override
 	public int join(MemberDto memberDto) {
-		String joinid = memberDao.findjoinbyid();
-		if (joinid == memberDao.findjoinbyid()) {
-			memberDto.setMb_id("duplication");
-		}
 		return memberDao.insert(memberDto);
 	}
 
