@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="myPage.css" />
+    <link rel="stylesheet" href="myPage_PostManage.css" />
+    <script src="/js/main.js"></script>
+    <title>여행발자국</title>
+  </head>
+  <body>
+    <header>
+      <img src="/image/logo_footprint.png" alt="" />
+      <div class="cyy_ham_container">
+        <input type="checkbox" id="cyy_ham_trigger" />
+        <label for="cyy_ham_trigger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+        <nav class="cyy_nav">
+          <a id="logout" data-link="로그아웃"></a>
+          <a id="mypage" data-link="마이페이지"></a>
+          <a id="login" data-link="로그인"></a>
+          <a id="profile" data-link="개발자 소개"></a>
+          <a id="home" data-link="HOME"></a>
+        </nav>
+      </div>
+    </header>
+    <section>
+      <article>
+        <div class="myPageHeader">
+          <div>발자국 관리</div>
+        </div>
+        <div class="myPageBody">
+          <div class="myPageList">
+            <div class="myPageUserProfile">
+              <div class="mPProfileImg">
+                <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQDEJ9uT3a8ZN65Mek-wN7xzJxnNJzDwwqYlXpEZOuZQ&s"
+                  alt=""
+                />
+                <div class="mPProfileChange">프로필 사진 변경하기</div>
+              </div>
+              <div class="mPProfileName">이름</div>
+              <div class="mPProfileLogout">로그아웃</div>
+            </div>
+            <div class="myPageUserHeart">
+              <div id="MyALLheart">
+                <div class="mPLikeTitle">좋아하는 글</div>
+                <img src="/image/icon_heart.png" alt="" />
+                <div class="mPLikeCount">
+                  <span id="mPFavoriteLike ">9999</span>개
+                </div>
+              </div>
+              <div id="MyALLheart">
+                <div class="mPLikeTitle">내가 받은 하트</div>
+                <img src="/image/icon_heart.png" alt="" />
+                <div class="mPLikeCount">
+                  <span id="mPReceivedLike">9999</span>개
+                </div>
+              </div>
+              <div id="MyALLheart">
+                <div class="mPLikeTitle">가장많이받은하트</div>
+                <img src="/image/icon_heart.png" alt="" />
+                <div class="mPLikeCount">
+                  <span id="mPMostHeart">9999</span>개
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="myPageContent">
+            <div class="myPagePost">
+              <div class="mPContentTitle">발자국 관리</div>
+              <div class="mPContentBox" id="mpPostListBox">
+                <div class="mPPostBox">
+                  <img class="mPPostImg" src="" alt="" />
+                  <div class="mPPostHeart">
+                    <span class="mPPostHeartCount">99</span>
+                    <img src="/image/icon_heart.png" alt="" />
+                  </div>
+                  <div class="mPPostTitle">가나다ㅇㅇㅇ</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+    <footer>
+      <p>CopyRight &copy; dbsdudsw@icloud.com</p>
+    </footer>
+    <script src="myPage_PostManage.js"></script>
+  </body>
+</html>
