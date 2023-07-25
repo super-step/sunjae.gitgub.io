@@ -32,12 +32,8 @@ public class HomeController {
 		return "/member/home";
 	}
 
-//	회원가입
-	@RequestMapping(value = "/join")
-	public String join() {
-		return "/member/join";
-	}
 
+	
 //	로그인
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String login(@RequestParam(name = "ERROR", required = false) String ERROR,
@@ -65,10 +61,10 @@ public class HomeController {
 	}
 
 //	 마이페이지
-	@RequestMapping(value = "/{mb_id}/home", method = RequestMethod.GET)
-	public String loginhome(@PathVariable("mb_id") String mb_id, Model model) {
+	@RequestMapping(value = "/mypage", method = RequestMethod.GET)
+	public String loginhome( String mb_id, Model model) {
 
-		return "home";
+		return "/member/mypage";
 	}
 
 }

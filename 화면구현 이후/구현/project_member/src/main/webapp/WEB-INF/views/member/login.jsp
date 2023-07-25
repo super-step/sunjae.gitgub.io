@@ -11,7 +11,7 @@
 <script src="${rootPath}/static/js/login.js?001"></script>
 <script src="${rootPath}/static/js/main_nav.js?004"></script>
 
-
+<%/*회원가입설정 어디 있는지 물어봐야 함*/ %>
 <title>Insert title here</title>
 </head>
 <body>
@@ -73,7 +73,6 @@
           class="modal_body_email_text"
           placeholder="전화번호를 입력해주세요"
         />
-      
       </form>
       <button class="modal_body_email_button">전화번호로 인증받기</button>
 
