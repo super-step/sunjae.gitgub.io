@@ -8,6 +8,10 @@
 <meta charset="UTF-8">
 <link href="${rootPath}/static/css/home.css?${version}" rel="stylesheet">
 <link href="${rootPath}/static/css/login.css?${version}" rel="stylesheet">
+<script src="${rootPath}/static/js/login.js?001"></script>
+<script src="${rootPath}/static/js/main_nav.js?004"></script>
+
+
 <title>Insert title here</title>
 </head>
 <body>

@@ -26,56 +26,49 @@ public class HomeController {
 		this.memberService = memberService;
 	}
 
-	
-	
-	
-	
-	
-	
+//	메인화면
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
-
-		return "member/home";
+		return "/member/home";
 	}
 
-	
-	
-//////	로그인
-	@RequestMapping(value = "/member/login", method = RequestMethod.GET)
+//	회원가입
+	@RequestMapping(value = "/join")
+	public String join() {
+		return "/member/join";
+	}
+
+//	로그인
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String login(@RequestParam(name = "ERROR", required = false) String ERROR,
 			@ModelAttribute("MEMBER") MemberDto memberDto, Model model) {
 		model.addAttribute("ERROR", ERROR);
-		return "member/login";
+		return "/member/login";
 	}
-	
-	@RequestMapping(value = "/member/login",method = RequestMethod.POST)
-	public String login(@ModelAttribute("MEMBER") MemberDto memberDto,
-			HttpSession httpSession, SessionStatus sessionStatus) {
-		
-	MemberDto resultDto;
-	try {
-		resultDto = memberService.login(memberDto);
-		httpSession.setAttribute("LOGINUSER", resultDto);
-	} catch (Exception e) {
+
+//	로그인
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	public String login(@ModelAttribute("MEMBER") MemberDto memberDto, HttpSession httpSession,
+			SessionStatus sessionStatus) {
+		MemberDto resultDto;
+		try {
+			resultDto = memberService.login(memberDto);
+			httpSession.setAttribute("LOGINUSER", resultDto);
+		} catch (Exception e) {
 //		new Exception(message)라고 보낸 Exception 에서 
 //		message에 해당하는 부분 getter 하기
-		String message = e.getMessage();
-		return "redirect:/user/login?ERROR=" + message;
-	}
+			String message = e.getMessage();
+			return "redirect:/user/login?ERROR=" + message;
+		}
 		sessionStatus.setComplete();
 		return "redirect:/";
-		
-		
 	}
-	
-	
-	
 
 //	 마이페이지
 	@RequestMapping(value = "/{mb_id}/home", method = RequestMethod.GET)
 	public String loginhome(@PathVariable("mb_id") String mb_id, Model model) {
 
 		return "home";
-}
+	}
 
 }

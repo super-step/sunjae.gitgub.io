@@ -14,7 +14,7 @@
 	var rootPath = "${rootPath}"
 </script>
 <script src="${rootPath}/static/js/home.js"></script>
-<script src="${rootPath}/static/js/main_nav.js?001"></script>
+<script src="${rootPath}/static/js/main_nav.js?004"></script>
 </head>
 <body>
 	<header>
