@@ -15,7 +15,12 @@ public interface MemberService {
 	
 //	비밀번호 찾기(미정) 
 	public MemberDto findByPassword(String password);
-	
+
+//	회원가입
+	public int insert(MemberDto memberDto) throws Exception;
+
+	//	새로운 코드 생성 
+	public String getNewCode();
 		
 	
 }

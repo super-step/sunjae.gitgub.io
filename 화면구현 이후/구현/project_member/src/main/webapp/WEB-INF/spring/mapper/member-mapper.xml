@@ -7,22 +7,15 @@
 
 	<insert id="insert">
 		INSERT INTO tb_member
-		(mb_id, mb_password, mb_nick,
-		mb_proimg, mb_name, mb_birth, mb_tel, mb_email,
-		mb_addr)
+			(mb_id, mb_password, mb_nick, mb_proimg, mb_name,
+			 mb_birth, mb_tel, mb_email, mb_addr)
 		VALUES
-		(#{mb_id}, #{mb_password}, #{mb_nick}, #{mb_proimg}, #{mb_name},
-		#{mb_birth},
-		#{mb_tel}, #{mb_email}, #{mb_addr})
+			(#{mb_id}, #{mb_password}, #{mb_nick}, #{mb_proimg},
+			 #{mb_name}, #{mb_birth}, #{mb_tel}, #{mb_email}, #{mb_addr})
 	</insert>
 
 
 	<update id="update">
-
-
-
-
-
 	</update>
 
 

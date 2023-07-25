@@ -11,7 +11,7 @@
 <script src="${rootPath}/static/js/login.js?001"></script>
 <script src="${rootPath}/static/js/main_nav.js?004"></script>
 
-<%/*회원가입설정 어디 있는지 물어봐야 함*/ %>
+
 <title>Insert title here</title>
 </head>
 <body>
