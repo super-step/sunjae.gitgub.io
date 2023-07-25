@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link th:href="@{/static/css/home.css}" rel="stylesheet" />
+    <link th:href="@{/static/css/login.css}" rel="stylesheet" />
+    <link th:href="@{/static/css/loginmodel.css}" rel="stylesheet" />
+    <script th:src="@{/static/js/home.js}"></script>
+    <script th:src="@{/static/js/main_nav.js}"></script>
+
+
+
+    <title>여행발자국</title>
+</head>
+
+<body>
+    <header th:replace="~{include :: header}" />
+    <section>
+        <article class="map_container"></article>
+    </section>
+    <article id="login_container">
+        <!-- 로그인 화면 -->
+        <section id="login_box">
+            <form id="login_form">
+                <h2>여행 발가락</h2>
+                <input type="text" name="username" placeholder="사용자 ID" />
+                <input type="password" name="password" placeholder="비밀번호" />
+                <button type="button" id="login_button">로그인</button>
+                <div id="more_text">
+                    <a id="login_join">회원가입</a>
+                    <a class="btn-open-popup"> 아이디찾기 / 비밀번호찾기 </a>
+                </div>
+            </form>
+        </section>
+        <section id="login_right"></section>
+    </article>
+    <section class="main" layout:fragment="content"></section>
+</body>
+<!--모달시작 -->
+<div class="modal">
+    <div class="modal_body">
+        <div class="modal_header">
+            <div class="modal_title">발자국 찾기</div>
+
+            <div class="modal_X">닫기</div>
+        </div>
+        <form action="" class="modal_form">
+            <div class="modal_form_input">
+                <div class="modal_form_title">id</div>
+                <label for="modal_input_01"></label>
+                <input type="text" id="modal_input_01" />
+            </div>
+            <div class="modal_form_input">
+                <label for="modal_input_02"></label>
+                <input type="text" id="modal_input_02" />
+            </div>
+            <div class="modal_form_input">
+                <label for="modal_input_02"></label>
+                <input type="text" id="modal_input_02" />
+            </div>
+            <div class="modal_form_input">
+                <label for="modal_input_02"></label>
+                <input type="text" id="modal_input_02" />
+            </div>
+            <div class="modal_form_btn">
+                <button class="modal_btn save_btn">저장</button>
+                <button class="modal_btn close_btn">닫기</button>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- 모달 끝 -->
+
+</html>
