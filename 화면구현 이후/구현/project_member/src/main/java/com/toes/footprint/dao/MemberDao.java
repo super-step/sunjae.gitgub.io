@@ -48,4 +48,10 @@ public interface MemberDao {
 	@Select("SELECT * FROM tb_member WHERE mb_email = #{email}")
 	public MemberDto findemail(String email);
 
+	
+	
+	
+	
+	
+	
 }

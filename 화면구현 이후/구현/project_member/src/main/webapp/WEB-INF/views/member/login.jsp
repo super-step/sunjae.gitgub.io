@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    <%@ taglib prefix="form"  uri="http://www.springframework.org/tags/form"%>
 <c:set value="${pageContext.request.contextPath}" var="rootPath" />
 <!DOCTYPE html>
 <html>
@@ -39,16 +40,27 @@
     <article id="login_container">
       <!-- 로그인 화면 -->
       <section id="login_box">
-        <form id="login_form">
+       
+       
+       
+       
+        <form:form id="login_form" modelAttribute="MEMBER">
           <h2>여행 발가락</h2>
-          <input type="text" name="username" placeholder="사용자 ID" />
-          <input type="password" name="password" placeholder="비밀번호" />
-          <button type="button" id="login_button">로그인</button>
+          <form:input path="mb_id" type="text" name="mb_id" placeholder="사용자 ID" />
+          <input path="mb_password" type="password" name="mb_password" placeholder="비밀번호" />
+          <button type="submit" id="login_button">로그인</button>
           <div id="more_text">
             <a id="login_join">회원가입</a>
             <a class="btn-open-popup"> 아이디찾기 / 비밀번호찾기 </a>
           </div>
-        </form>
+        </form:form>
+     
+     
+     
+     
+     
+     
+     
       </section>
       <section id="login_right"></section>
     </article>

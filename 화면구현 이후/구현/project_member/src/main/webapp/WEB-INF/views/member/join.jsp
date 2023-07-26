@@ -61,7 +61,7 @@
 				<form:form id="join_form" modelAttribute="MEMBER" >
 					<div class="join_rowbox">
 						<form:input path="mb_id" name="mb_id" type="text"  id="userid" placeholder="사용자 ID는 4글자이상" />
-						<button type="button" id="idcheck" class="check_button">중복확인</button> </div>
+						 </div>
 					<form:input path="mb_password" name="mb_password"  type="password"  id="password" placeholder="비밀번호는 4글자 이상" />
 					<%/*이미지는 마이페이지에서 추가*/ %>
 					<form:input path="mb_nick"	name="mb_nick" type="text"  id="nickname" placeholder="닉네임" />
@@ -72,7 +72,7 @@
 					<form:input path="mb_addr" name="mb_addr" type="text" id="nickname" placeholder="주소" />
 					<div class="join_rowbox">
 						
-						<button type="button" id="telcheck" class="check_button">중복확인 </button>
+						
 					</div>
 					<button type="submit" id="join_button">회원가입</button>
 			</div>
