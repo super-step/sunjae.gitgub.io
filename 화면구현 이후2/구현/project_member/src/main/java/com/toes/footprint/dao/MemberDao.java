@@ -26,8 +26,8 @@ public interface MemberDao {
 	@Select("SELECT * FROM tb_member WHERE mb_password = #{password} ")
 	public MemberDto findByPassword(String password);
 
-	
-
+//	mapper에서 생성함 . 모달에서 아이디를 찾는 코드
+	  MemberDto findByEmail(String email);
 	
 	
 	

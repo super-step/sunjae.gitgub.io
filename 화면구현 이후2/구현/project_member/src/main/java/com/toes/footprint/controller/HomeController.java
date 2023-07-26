@@ -64,25 +64,38 @@ public class HomeController {
 //	로그인페이지 GET
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String login(@RequestParam(name = "ERROR", required = false) String errorMessage,
-			@ModelAttribute("MEMBERLOGIN") MemberDto memberDto, Model model) {
+			@ModelAttribute("MEMBERLOGIN") MemberDto memberDto, Model model, String modal) {
 
 		if (errorMessage != null) {
 			model.addAttribute("ERROR", errorMessage);
 		}
+		
+//		여기부터 
+		 if (modal != null && !modal.isEmpty()) {
+	            try {
+	                String foundId = memberService.findIdByEmail(modal);
+	                model.addAttribute("FOUND_ID", foundId);
+	            } catch (Exception e) {
+	                model.addAttribute("ERROR", e.getMessage());
+	            }
+	        }
+		
+//		여기까지 gtp로 추가 그리고 매개변수의 String modal도 추가
+		
+		
+		
+		
+		
+		
 		return "/member/login";
 	}
 
 //	로그인페이지 POST
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String login(@ModelAttribute("MEMBERLOGIN") MemberDto memberDto,String modal, HttpSession httpSession) {
+	public String login(@ModelAttribute("MEMBERLOGIN") MemberDto memberDto, HttpSession httpSession) {
 
 		try {
 			memberDto = memberService.login(memberDto);
-			
-			MemberDto modaldto= memberService.findById(modal);
-			
-			
-			
 			return "redirect:/";
 		} catch (Exception e) {
 			return "redirect:/login?ERROR=" + e.getMessage();

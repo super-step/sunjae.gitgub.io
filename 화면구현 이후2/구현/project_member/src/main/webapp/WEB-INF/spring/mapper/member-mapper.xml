@@ -18,6 +18,13 @@
 	<update id="update">
 	</update>
 
+ <select id="findByEmail" >
+        SELECT *
+        FROM tb_member
+        WHERE mb_email = #{email}
+    </select>
+
+
 
 	<select id="creat_member_table">
 		CREATE TABLE IF NOT EXISTS tb_member(

@@ -22,5 +22,8 @@ public interface MemberService {
 	//	새로운 코드 생성 
 	public String getNewCode();
 		
+//	모달에서 아이디를 찾는 코드 
+    String findIdByEmail(String email) throws Exception;
+	
 	
 }

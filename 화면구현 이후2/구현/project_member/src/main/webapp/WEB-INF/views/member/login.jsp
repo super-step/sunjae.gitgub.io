@@ -83,22 +83,15 @@
 
 
 <%/*form 시작*/ %>
-      <form:form action="" class="modal_body_email" modelAttribute="MEMBERLOGIN">
-       
-        <input
-          type="text"
-          class="modal_body_idpass_id"
-          placeholder="이메일을 입력해주세요"
-        />
-         <c:if test=""> 
+   <form:form action="${rootPath}/login" class="modal_body_email" modelAttribute="MEMBERLOGIN">
+      <form:input path="mb_email" type="text" class="modal_body_idpass_id" placeholder="이메일을 입력해주세요" />
+      <button type="submit">아이디 찾기</button>
+      <c:if test="${FOUND_ID ne null}">
+        <h2>아이디는 <span class="found_id">${FOUND_ID}</span> 입니다</h2>
+      </c:if>
          
          
-         
-         <h2>아이디는입니다</h2>
-         
-         
-         
-         </c:if>
+      
        
         <input
       

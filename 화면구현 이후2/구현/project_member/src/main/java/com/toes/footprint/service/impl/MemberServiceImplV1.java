@@ -111,4 +111,14 @@ public class MemberServiceImplV1 implements MemberService {
 		return null;// newCode;
 	}
 
+	@Override
+	public String findIdByEmail(String email) throws Exception {
+		
+		MemberDto foundMember = memberDao.findByEmail(email);
+        if (foundMember == null) {
+            throw new Exception("아이디가 존재하지 않습니다.");
+        }
+        return foundMember.getMb_id();
+	}
+
 }
