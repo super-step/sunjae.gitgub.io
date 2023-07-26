@@ -30,22 +30,23 @@ public class MemberServiceImplV1 implements MemberService {
 		return memberDao.insert(memberDto);
 	}
 
-//	isBlank 사용(빈칸일시)
+
 	@Override
 	public MemberDto login(MemberDto memberDto) throws Exception {
-		if (memberDto.getMb_id().isBlank()) {
-			throw new Exception("MEMBER_EMPTY");
-		} else if (memberDto.getMb_password().isBlank()) {
-			throw new Exception("PASSWORD_EMPTY");
-		}
-//		객체를 새로 만들어 db에서 id를 찾아 resultDto에 저장 
+
+//		사용자가 있는지 확인
 		MemberDto resultDto = memberDao.findById(memberDto.getMb_id());
-//		dto값이 비었다면 "MEMBERNAME" 을 controller에 예외를 보냄
+//		아이디가 없을 경우
 		if (resultDto == null) {
-			throw new Exception("MEMBERNAME");
-//			id값이 있고 비밀번호가 다를경우 "PASSWORD" 를 controller에 보냄
-		} else if (resultDto != null && !memberDto.getMb_password().equals(resultDto.getMb_password())) {
-			throw new Exception("PASSWORD");
+			throw new Exception("NOTID");
+//			아이디는 있는데 패스워드가 틀린경우-> 이거 솔직히 아직도 이해 안감
+//			memberDto에서 모든  PASSWORD를 뒤지는건가? 그리고 resultDto 에
+//			PASSWORD를 저장한 적도 없잖아
+		} else {
+			if (resultDto != null && !resultDto.getMb_password().equals(memberDto.getMb_password())) {
+				throw new Exception("NOTPASSWORD");
+			}
+
 		}
 
 		return resultDto;
@@ -59,13 +60,11 @@ public class MemberServiceImplV1 implements MemberService {
 
 	@Override
 	public MemberDto findByPassword(String password) {
-		// TODO Auto-generated method stub
-		return null;
+		return memberDao.findByPassword(password);
 	}
 
-	/*
-	 * 회원을 등록할 때 새로운 코드를 생성해 memberDto에 업데이트고 회원정보 insert 하기
-	 */
+//	  회원을 등록할 때 새로운 코드를 생성해 memberDto에 업데이트고 회원정보 insert 하기
+
 	@Override
 	public int insert(MemberDto memberDto) throws Exception {
 //		아이디 중복 방지 코드
@@ -94,19 +93,14 @@ public class MemberServiceImplV1 implements MemberService {
 //		이메일이 중복되지 않게 하는코드		
 		String email = memberDto.getMb_email().trim();
 		MemberDto resultDtoemail = memberDao.findemail(email);
-		if(resultDtoemail != null) {
+		if (resultDtoemail != null) {
 			throw new Exception("EMAIL");
 		}
-		
-		
-		// seq는 이미 자동증가값인데 진짜 필요한가
-		String mCode = this.getNewCode();
-//		memberDto.set
 
 		return memberDao.insert(memberDto);
 	}
 
-// tb_member 를 조회해 새로운 고객코드를 생성하는 메서드
+// tb_member 를 조회해 새로운 고객코드를 생성하는 메서드- 안쓰는 중
 	@Override
 	public String getNewCode() {
 		String mCode = memberDao.getMaxMcode();

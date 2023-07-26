@@ -230,6 +230,11 @@
     width: 280px;
     border-color: #3498db;
   }
+ div.modal_save_buton{
+
+  margin-top: 50px;
+
+}
   /* 패스워드 입력 박스 */
   .modal_body_idpass_password {
     width: 200px;
