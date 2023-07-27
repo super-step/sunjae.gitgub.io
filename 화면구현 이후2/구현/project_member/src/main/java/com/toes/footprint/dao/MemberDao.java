@@ -25,13 +25,17 @@ public interface MemberDao {
 //	로그인 비밀번호 찾기 -> 사용안함
 	@Select("SELECT * FROM tb_member WHERE mb_password = #{password} ")
 	public MemberDto findByPassword(String password);
+	
+	@Select("SELECT * FROM tb_member WHERE mb_password = #{email} ")
+	public MemberDto findByemail(String email);
 
 //	mapper에서 생성함 . 모달에서 아이디를 찾는 코드
 //	@Select("SELECT * FROM tb_member WHERE mb_email =#{email}")
 //	public MemberDto findByEmail(String email);
 	
-		
-	
+//		아이디와 비밀번호를 가져오는 코드
+	@Select("SELECT * FROM tb_member WHERE mb_id = #{id} AND mb_password = #{password}  ")
+	public MemberDto findidpassword(@Param("id") String name, @Param("password")String password);
 	
 	
 	

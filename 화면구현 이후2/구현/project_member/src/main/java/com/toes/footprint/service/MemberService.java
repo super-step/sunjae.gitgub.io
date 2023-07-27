@@ -23,7 +23,7 @@ public interface MemberService {
 	public String getNewCode();
 		
 //	모달에서 아이디를 찾는 코드 
-    String findIdByEmail(String email) throws Exception;
+    MemberDto findIdByEmail(MemberDto memberDto) throws Exception;
 
 	public MemberDto findtoid(MemberDto memberDto);
 	

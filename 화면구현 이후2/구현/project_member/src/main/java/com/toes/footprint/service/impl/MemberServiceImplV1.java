@@ -30,7 +30,6 @@ public class MemberServiceImplV1 implements MemberService {
 		return memberDao.insert(memberDto);
 	}
 
-
 	@Override
 	public MemberDto login(MemberDto memberDto) throws Exception {
 
@@ -46,21 +45,49 @@ public class MemberServiceImplV1 implements MemberService {
 			if (resultDto != null && !resultDto.getMb_password().equals(memberDto.getMb_password())) {
 				throw new Exception("NOTPASSWORD");
 			}
-
 		}
-
 		return resultDto;
 	}
 
-	
+	@Override
+	public MemberDto findIdByEmail(MemberDto memberDto) throws Exception {
+//	db에 저장된 값과 일치하는지 그리고 일치한다면 각 메세지를 반환하고자한다.
+//		이중에서 이름과 이메일 정보가 일치한다면 password도 반환하고자 한다
+		
+//		memberDTO는 매개변수이기 때문에 INPUT TAG에서 입력한 값이 들어간다
+		
+		MemberDto resultDto = memberDao.findById(memberDto.getMb_id());
+		if (resultDto == null) {
+			throw new Exception("NOTID");
+		} else if (resultDto != null && !resultDto.getMb_email().equals(memberDto.getMb_email())) {
+			throw new Exception("NOTEMAIL");
+		}
+		
+//		이름과 이메일정보가 일치할때 resultDto는 내가 id를 검색해서 가져온 튜플이니 거기 튜플에 password가 들어있나?
+//		GPT챗은 들어있다고 하니 그대로 resultDto를 반환하는데 왜 나오지 않는건가
+		
+		else if (resultDto != null && resultDto.getMb_email().equals(memberDto.getMb_email())) {
+			
+//			input에 입력한 값을 토대로 resultDto에 아이디랑 비밀번호를 저장해 리턴하는 메서드인데 null값 나옴 근데 위에 것도 null값인데 실행은 잘 됨
+			MemberDto idpasswordDto= memberDao.findidpassword(memberDto.getMb_id(), memberDto.getMb_password());
+			resultDto.setMb_id(idpasswordDto.getMb_id());
+			resultDto.setMb_password(idpasswordDto.getMb_password());
+			throw new Exception("EMAIL");
+		}
+		
+		return resultDto;
+	}
 
-	
 	@Override
 	public MemberDto findById(String id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
+	
+	
+	
+	
 	@Override
 	public MemberDto findByPassword(String password) {
 		return memberDao.findByPassword(password);
@@ -115,20 +142,8 @@ public class MemberServiceImplV1 implements MemberService {
 	}
 
 	@Override
-	public String findIdByEmail(String email) throws Exception {
-		
-		MemberDto foundMember = memberDao.findByEmail(email);
-        if (foundMember == null) {
-            throw new Exception("아이디가 존재하지 않습니다.");
-        }
-        return foundMember.getMb_id();
-	}
-
-	@Override
 	public MemberDto findtoid(MemberDto memberDto) {
-		
-		
-		
+
 //		if(resultDto.getMb_email().equals(resultDto.getMb_email()))	
 		return null;
 	}

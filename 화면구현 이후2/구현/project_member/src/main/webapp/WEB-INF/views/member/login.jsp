@@ -61,7 +61,7 @@
           <button type="submit" id="login_button">로그인</button>
           <div id="more_text">
             <a id="login_join">회원가입</a>
-            <a class="btn-open-popup"> 아이디찾기 / 비밀번호찾기 </a>
+            <a href="${rootPath}/loginmodal" class="btn-open-popup"> 아이디찾기 / 비밀번호찾기 </a>
           </div>
         </form:form>
       <%/*form 끝*/ %>
@@ -76,87 +76,5 @@
     </footer>
 </body>
 
-  <div class="modal">
-    <div class="modal_body">
-      <div class="modal_body_text">발자국 찾기</div>
-
-
-
-<%/*form 시작*/ %>
-   <form:form action="${rootPath}/login" class="modal_body_email" modelAttribute="MEMBERLOGIN">
-      
-      <form:input path="mb_email" 
-      type="text" class="modal_body_idpass_id" 
-      placeholder="이메일을 입력해주세요" />
-      
-      <button type="submit">아이디 찾기</button>
-      <c:if test="${FOUND_ID ne null}">
-        <h2>아이디는 <span class="found_id">${FOUND_ID}</span> 입니다</h2>
-      </c:if>
-         
-         
-      
-       
-        <input
-      
-          type="text"
-          class="modal_body_email_text"
-          placeholder="아이디를 입력해주세요"
-        />
-           <input
-          type="text"
-          class="modal_body_email_text"
-          placeholder="전화번호를 입력해주세요"
-        />
-        
-       
-       <%/* <c:if test="">
-       </c:if><h2>비밀번호는입니다</h2>*/ %>
-        
-        
-        
-      </form:form>
-      <%/*form 끝*/ %>
-      
-      
-      <%/*이거 버튼 옮겨야하는데 피곤하니 나중에 하자*/ %>
-      <div class="modal_save_buton" >
-      <button class="modal_body_email_button"> 인증받기</button>
-    </div>
-   <%/*
-  
-   <div class="modal_body_email_checkbox_line">
-   <div class="modal_body_email_checkbox_message">
-     인증이 완료되었습니다
-   </div>
-   <input class="modal_body_email_checkbox" type="checkbox" disabled />
- </div>
-
-   */ %> 
-    
-     
-    
-    
-  <form action="" class="modal_body_idpass">
-    <input
-    type="password"
-    class="modal_body_idpass_password"
-    placeholder="비밀번호 재설정"
-  />
-</form>
-
-    
-    
-    
-    
-    
-    
-    
-      <button class="modal_body_idpass_button">저장</button>
-      <form action="">
-        <button class="modal_body_close_button">닫기</button>
-      </form>
-    </div>
-  </div>
-
+ 
 </html>
