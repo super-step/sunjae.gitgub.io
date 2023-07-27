@@ -24,6 +24,8 @@ public interface MemberService {
 		
 //	모달에서 아이디를 찾는 코드 
     String findIdByEmail(String email) throws Exception;
+
+	public MemberDto findtoid(MemberDto memberDto);
 	
 	
 }

@@ -64,12 +64,15 @@ public class HomeController {
 //	로그인페이지 GET
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String login(@RequestParam(name = "ERROR", required = false) String errorMessage,
-			@ModelAttribute("MEMBERLOGIN") MemberDto memberDto, Model model, String modal) {
+			@ModelAttribute("MEMBERLOGIN") MemberDto memberDto, Model model, String modal, String id) {
 
+		
 		if (errorMessage != null) {
 			model.addAttribute("ERROR", errorMessage);
 		}
-		
+//		
+//		MemberDto resultDto= memberService.findtoid();
+//		model.addAttribute("RESULTDTO",resultDto);
 //		여기부터 
 		 if (modal != null && !modal.isEmpty()) {
 	            try {
@@ -96,6 +99,9 @@ public class HomeController {
 
 		try {
 			memberDto = memberService.login(memberDto);
+//			밑에서 만든 @ModelAttribute("MEMBERLOGIN") 을 HttpSession에 적용
+//			별 일이 없는 이상 내역이 삭제되지 않음 
+			httpSession.setAttribute("MEMBERLOGIN", memberDto);
 			return "redirect:/";
 		} catch (Exception e) {
 			return "redirect:/login?ERROR=" + e.getMessage();
@@ -105,8 +111,16 @@ public class HomeController {
 
 //	 마이페이지
 	@RequestMapping(value = "/mypage", method = RequestMethod.GET)
-	public String loginhome(String mb_id, Model model) {
-
+	public String loginhome(String mb_id, Model model,HttpSession httpSession) {
+//		로그인을 위한 @ModelAttribute를 dto로 형변환
+		MemberDto memberDto = (MemberDto)httpSession.getAttribute("MEMBERLOGIN");
+		
+//		만약 로그인이 안됐을 경우 전달하는 페이지
+		if(memberDto == null) {
+			 // 로그인 안됨
+			 return "redirect:/member/login";
+		}
+//	로그인이 되면 이동할 페이지
 		return "/member/mypage";
 	}
 

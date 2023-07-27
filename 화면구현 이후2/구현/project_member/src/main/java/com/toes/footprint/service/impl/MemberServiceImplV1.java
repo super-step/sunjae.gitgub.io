@@ -52,6 +52,9 @@ public class MemberServiceImplV1 implements MemberService {
 		return resultDto;
 	}
 
+	
+
+	
 	@Override
 	public MemberDto findById(String id) {
 		// TODO Auto-generated method stub
@@ -119,6 +122,15 @@ public class MemberServiceImplV1 implements MemberService {
             throw new Exception("아이디가 존재하지 않습니다.");
         }
         return foundMember.getMb_id();
+	}
+
+	@Override
+	public MemberDto findtoid(MemberDto memberDto) {
+		
+		
+		
+//		if(resultDto.getMb_email().equals(resultDto.getMb_email()))	
+		return null;
 	}
 
 }
