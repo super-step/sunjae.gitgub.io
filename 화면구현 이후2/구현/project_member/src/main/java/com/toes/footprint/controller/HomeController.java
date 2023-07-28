@@ -32,7 +32,9 @@ public class HomeController {
 
 //	메인화면
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Model model) {
+	public String home(Model model,  HttpSession httpSession) {
+		MemberDto memberDto = (MemberDto) httpSession.getAttribute("MEMBERLOGIN");
+		
 		return "/member/home";
 	}
 
@@ -95,35 +97,30 @@ public class HomeController {
 	public String loginmodal(@RequestParam(name = "ERROR", required = false) String errorMessage,
 			@ModelAttribute("MEMBERLOGIN") MemberDto memberDto, Model model,SessionStatus sessionStatus,HttpSession httpSession) {
 
-		log.debug("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@{}",memberDto.toString());
+//		log.debug("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@{}",memberDto.toString());
 		if (errorMessage != null) {
 			model.addAttribute("ERROR", errorMessage);
 		}
-//		유효성 검사 결과 나올 데이터
-//		model.addAttribute("MEMBERLOGINMODAL", memberDto);
 		return "/member/loginmodal";
 	}
-
+	
 	
 	@RequestMapping(value = "/loginmodal", method = RequestMethod.POST)
 	public String loginmodal(@ModelAttribute("MEMBERLOGIN") MemberDto memberDto, Model model,SessionStatus sessionStatus) {
-//		MemberDto resultDto;
-
-		
 		MemberDto resultDto = null;
 		try {
 			resultDto = memberService.findIdByEmail(memberDto);
 			model.addAttribute("MEMBERLOGIN",resultDto);
+//			impl에서 에러메세지를 설정 안한다. 
+//			catch문에서는 impl에서 입력한 message를 리턴하고 있는데 이건 실패했을 경우다
+//			try문에서는 직접적으로 "OK"라는 값을 리턴해서 JSP에서 OK라는 메세지를 받게 하는 것이다.
 			return "redirect:/loginmodal?ERROR=OK";
 		} catch (Exception e) {
-//			httpSession.setAttribute("MEMBERLOGIN",memberDto);
-//			memberDto = memberService.findById(memberDto.getMb_id());
-//			model.addAttribute("MEMBERLOGINMODAL", memberDto);
-			log.debug("******************************************전달값{}", memberDto);
+//			log.debug("******************************************전달값{}", memberDto);
 			return "redirect:/loginmodal?ERROR=" + e.getMessage();
 		}
 	}
-
+	
 //
 ////	로그인모달에 객체를 넣어주기 위한 메서드
 //	@ModelAttribute("MEMBERLOGINMODAL")
@@ -157,7 +154,6 @@ public class HomeController {
 	public MemberDto loginMemberDto() {
 		return MemberDto.builder().build();
 	}
-
 
 //	회원가입에 객체를 넣어주기 위한 메서드
 	@ModelAttribute("MEMBER")

@@ -69,8 +69,9 @@ public class MemberServiceImplV1 implements MemberService {
 			throw new Exception("NOTEMAIL");
 		}
 		else if (resultDto != null && resultDto.getMb_email().equals(memberDto.getMb_email())) {
-//			input에 입력한 값을 토대로 resultDto에 아이디랑 비밀번호를 저장해 리턴하는 메서드인데 null값 나옴 근데 위에 것도 null값인데 실행은 잘 됨
 			return resultDto;
+//			이건 dto값을 넘겨야 했는데 에러메세지만 넘겨주니 값이 출력되지 않았다 else if에서 조건이 만족됐다면 resultDto 값이 넘겨진줄 알았으나
+//			사실은 밑의 문자열 에러값만 넘겨졌던 것이다
 //			throw new Exception("EMAIL");
 		}
 

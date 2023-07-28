@@ -55,7 +55,7 @@
 
 					<c:if test="${ERROR == 'OK'}">
 						<h3>이메일과 아이디가 일치합니다</h3>
-						<h4>비밀번호: ${MEMBERLOGIN.mb_password}</h4>
+						<h4>비밀번호 : ${MEMBERLOGIN.mb_password}</h4>
 					</c:if>
 					
 				<form:input path="mb_id" type="text" name="username"

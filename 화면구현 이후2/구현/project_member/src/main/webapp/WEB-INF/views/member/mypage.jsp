@@ -11,7 +11,7 @@
 <link href="${rootPath}/static/css/mypagemodel.css?${version}" rel="stylesheet">
 <script src="${rootPath}/static/js/myPage.js?001"></script>
 <script src="${rootPath}/static/js/myPageModal.js?001"></script>
-
+<script src="${rootPath}/static/js/m">   </script>
 <body>
  <header>
       <img src="/image/logo_footprint.png" alt="" />
