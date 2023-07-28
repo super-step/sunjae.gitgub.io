@@ -42,23 +42,22 @@
 			<%
 			/*form 시작*/
 			%>
-			<form:form id="login_form" modelAttribute="MEMBERLOGINMODAL" >
+			<form:form id="login_form" modelAttribute="MEMBERLOGIN">
 				<h2>여행 발가락</h2>
 
+					<c:if test="${ERROR == 'NOTID'}">
+						<h2>존재하지 않는 아이디입니다</h2>
+					</c:if>
 
-				<c:if test="${ERROR == 'NOTID'}">
-					<h2>존재하지 않는 아이디입니다</h2>
-				</c:if>
+					<c:if test="${ERROR == 'NOTEMAIL'}">
+						<h2>이메일이 틀렸습니다</h2>
+					</c:if>
 
-				<c:if test="${ERROR == 'NOTEMAIL'}">
-					<h2>이메일이 틀렸습니다</h2>
-				</c:if>
-
-				<c:if test="${ERROR == 'EMAIL'}">
-					<h3>이메일과 아이디가 일치합니다</h3>
-					<h4>비밀번호: ${MODAL.mb_password}</h4>
-				</c:if>
-				
+					<c:if test="${ERROR == 'OK'}">
+						<h3>이메일과 아이디가 일치합니다</h3>
+						<h4>비밀번호: ${MEMBERLOGIN.mb_password}</h4>
+					</c:if>
+					
 				<form:input path="mb_id" type="text" name="username"
 					placeholder="사용자 ID" />
 

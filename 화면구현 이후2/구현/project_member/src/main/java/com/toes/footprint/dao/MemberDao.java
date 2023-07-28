@@ -17,7 +17,9 @@ public interface MemberDao {
 	@Select("SELECT MAX(mb_seq) FROM tb_member")
 	public String getMaxMcode();
 
-
+//	리턴값이 dto인 select문은 pk값으로 검색했을 시 그에 따른 다른 칼럼값도 가져와져서 dto에 저장된다.
+//	dto이름이 그래서 칼럼과 같아야 함
+	
 //	로그인 아이디 찾기 
 	@Select(" SELECT * FROM tb_member WHERE mb_id = #{id} ")
 	public MemberDto findById(String id);

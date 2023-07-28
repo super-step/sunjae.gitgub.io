@@ -17,7 +17,6 @@
 
 	<update id="update">
 		UPDATE tb_member
-
 		SET mb_id = {mb_id},
 		mb_password = #{mb_password},
 		mb_nick = #{mb_nick},
@@ -28,10 +27,6 @@
 		mb_email = #{mb_email},
 		mb_addr = #{mb_addr}
 		WHERE mb_id = {mb_id}
-
-
-
-
 	</update>
 
 	<select id="findByEmail">

@@ -16,6 +16,8 @@ import com.toes.footprint.service.MemberService;
 
 import lombok.extern.slf4j.Slf4j;
 
+
+//@SessionAttributes("MEMBERLOGINMODAL")
 @SessionAttributes("MEMBERLOGIN")
 @Slf4j
 @Controller
@@ -91,44 +93,44 @@ public class HomeController {
 
 	@RequestMapping(value = "/loginmodal", method = RequestMethod.GET)
 	public String loginmodal(@RequestParam(name = "ERROR", required = false) String errorMessage,
-			@RequestParam(name = "mb_id", required = false) String mbId,
-            @RequestParam(name = "mb_email", required = false) String mbEmail,
-			@ModelAttribute("MEMBERLOGINMODAL") MemberDto memberDto, Model model) {
-// 유효성 검사 메세지
-		 memberDto.setMb_id(mbId);
-		    memberDto.setMb_email(mbEmail);
+			@ModelAttribute("MEMBERLOGIN") MemberDto memberDto, Model model,SessionStatus sessionStatus,HttpSession httpSession) {
+
+		log.debug("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@{}",memberDto.toString());
 		if (errorMessage != null) {
 			model.addAttribute("ERROR", errorMessage);
 		}
 //		유효성 검사 결과 나올 데이터
-		model.addAttribute("MEMBERLOGINMODAL", memberDto);
+//		model.addAttribute("MEMBERLOGINMODAL", memberDto);
 		return "/member/loginmodal";
 	}
 
 	
-	
-	
 	@RequestMapping(value = "/loginmodal", method = RequestMethod.POST)
-	public String loginmodal(@ModelAttribute("MEMBERLOGINMODAL") MemberDto memberDto, Model model) {
+	public String loginmodal(@ModelAttribute("MEMBERLOGIN") MemberDto memberDto, Model model,SessionStatus sessionStatus) {
+//		MemberDto resultDto;
 
+		
+		MemberDto resultDto = null;
 		try {
-//			memberDto = memberService.findIdByEmail(memberDto);
-			 MemberDto resultDto = memberService.findIdByEmail(memberDto);
-			
-//			밑의 2개의 코드가 안먹히는거 같음
-			 model.addAttribute("MODAL", resultDto);
-			 log.debug("전달값{}",resultDto);
-			 
-			 
-			 
-			 
-			 
-			return "redirect:/loginmodal";
+			resultDto = memberService.findIdByEmail(memberDto);
+			model.addAttribute("MEMBERLOGIN",resultDto);
+			return "redirect:/loginmodal?ERROR=OK";
 		} catch (Exception e) {
+//			httpSession.setAttribute("MEMBERLOGIN",memberDto);
+//			memberDto = memberService.findById(memberDto.getMb_id());
+//			model.addAttribute("MEMBERLOGINMODAL", memberDto);
+			log.debug("******************************************전달값{}", memberDto);
 			return "redirect:/loginmodal?ERROR=" + e.getMessage();
 		}
 	}
 
+//
+////	로그인모달에 객체를 넣어주기 위한 메서드
+//	@ModelAttribute("MEMBERLOGINMODAL")
+//	public MemberDto loginModalMemberDto() {
+//		return MemberDto.builder().build();
+//	}
+	
 //	 마이페이지
 	@RequestMapping(value = "/mypage", method = RequestMethod.GET)
 	public String loginhome(String mb_id, Model model, HttpSession httpSession) {
@@ -156,11 +158,6 @@ public class HomeController {
 		return MemberDto.builder().build();
 	}
 
-//	로그인모달에 객체를 넣어주기 위한 메서드
-	@ModelAttribute("MEMBERLOGINMODAL")
-	public MemberDto loginModalMemberDto() {
-		return MemberDto.builder().build();
-	}
 
 //	회원가입에 객체를 넣어주기 위한 메서드
 	@ModelAttribute("MEMBER")
