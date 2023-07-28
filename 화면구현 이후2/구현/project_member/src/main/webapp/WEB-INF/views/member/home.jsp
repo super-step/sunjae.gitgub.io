@@ -26,33 +26,21 @@
 				<li class="home">HOME</li>
 				<li class="developer">개발자 소개</li>
 				
-				<%/*
-				httpsession이 null값일 경우 	 = 로그인이 안된경우 나타남
-				httpsession이 null값이 아닌 경우 = 로그인이 된경우 사라짐
-				*/ %>
+			
+			<%/*httpsession이 없을경우 나타날 로그아웃*/ %>
 				<c:if test="${MEMBERLOGIN==null}">
-				<li class="login">로그인</li>
-				</c:if>
-		<li class="login">로그인</li>
-		
-				<%/*로그인이 완료될 경우 나타날 로그아웃*/ %>
-				<c:if test="">
-				
-				
-				</c:if>
-		<li class="login">로그인</li>
-		
-				
-				<%/*로그인 완료 후 나타날 마이페이지*/ %>
-				<c:if test="">
-				
-				
+					<li class="login">로그인</li>
 				</c:if>
 		
+		<%/*httpsession이 있을 경우 나타날 로그아웃*/ %>
+				<c:if test="${MEMBERLOGIN!=null}">
+					<li class="login">로그아웃</li>
+				</c:if>
 		
-		
-		
-		
+		<%/*httpsession이 있을 경우 나타날 마이페이지*/ %>
+				<c:if test="${MEMBERLOGIN!=null}">
+					<li class="login">마이페이지</li>
+				</c:if>
 				
 			</ul>
 		</div>

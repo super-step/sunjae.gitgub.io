@@ -74,22 +74,13 @@ public class MemberServiceImplV1 implements MemberService {
 //			사실은 밑의 문자열 에러값만 넘겨졌던 것이다
 //			throw new Exception("EMAIL");
 		}
-
-		
 		return null;
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 	}
 
+	
+	
+	
+	
 	@Override
 	public MemberDto findById(String id) {
 		
@@ -98,13 +89,21 @@ public class MemberServiceImplV1 implements MemberService {
 		return resultDto;
 	}
 
+	
+	
+	
 	@Override
 	public MemberDto findByPassword(String password) {
 		return memberDao.findByPassword(password);
 	}
 
-//	  회원을 등록할 때 새로운 코드를 생성해 memberDto에 업데이트고 회원정보 insert 하기
-
+	
+	
+	
+	
+	
+//	  회원을 등록할 때 새로운 코드를 생성해 memberDto에 업데이트하고 회원정보 insert 하기
+	
 	@Override
 	public int insert(MemberDto memberDto) throws Exception {
 //		아이디 중복 방지 코드

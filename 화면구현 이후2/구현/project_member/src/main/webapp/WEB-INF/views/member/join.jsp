@@ -56,6 +56,9 @@
 			
 			
 			
+			<%/*  빈칸은 입력 못하게 적용하기  */ %>
+			
+			
 			<div id="join_body">
 			<%/*controller 에서 가져온 modelAttribute*/ %>
 				<form:form id="join_form" modelAttribute="MEMBER" >
@@ -64,19 +67,19 @@
 					 </div>
 					<form:input path="mb_password" name="mb_password"  type="password"  id="password" placeholder="비밀번호는 4글자 이상" />
 					<%/*이미지는 마이페이지에서 추가*/ %>
-					<form:input path="mb_nick"	name="mb_nick" type="text"  id="nickname" placeholder="닉네임" />
-					<form:input path="mb_name"	name="mb_name" type="text"  id="nickname" placeholder="이름" />
-					<form:input path="mb_birth"	name="mb_birth" type="text"  id="username" placeholder="생일" />
-					<form:input path="mb_tel"  name="mb_tel" type="text" id="nickname" placeholder="전화번호" />
-					<form:input path="mb_email" name="mb_email" type="text"  id="nickname" placeholder="이메일" />
-					<form:input path="mb_addr" name="mb_addr" type="text" id="nickname" placeholder="주소" />
+					<form:input path="mb_nick"	name="mb_nick" type="text"  id="nickname" placeholder="닉네임" pattern="^\S.*$" title="빈칸을 입력할 수 없습니다."/>
+					<form:input path="mb_name"	name="mb_name" type="text"  id="nickname" placeholder="이름" pattern="^\S.*$" title="빈칸을 입력할 수 없습니다."/>
+					<form:input path="mb_birth"	name="mb_birth" type="text"  id="username" placeholder="생일" pattern="^\S.*$" title="빈칸을 입력할 수 없습니다."/>
+					<form:input path="mb_tel"  name="mb_tel" type="text" id="nickname" placeholder="전화번호" pattern="^\S.*$" title="빈칸을 입력할 수 없습니다."/>
+					<form:input path="mb_email" name="mb_email" type="text"  id="nickname" placeholder="이메일" pattern="^\S.*$" title="빈칸을 입력할 수 없습니다."/>
+					<form:input path="mb_addr" name="mb_addr" type="text" id="nickname" placeholder="주소" pattern="^\S.*$" title="빈칸을 입력할 수 없습니다."/>
 					<div class="join_rowbox">
 						
 						
 					</div>
 					<button type="submit" id="join_button">회원가입</button>
-			</div>
 			</form:form>
+			</div>
 		</section>
 	</article>
 	<footer>
