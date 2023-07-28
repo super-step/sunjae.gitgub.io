@@ -32,14 +32,16 @@
 					<li class="login">로그인</li>
 				</c:if>
 		
+		<li class="login">임시로그인</li>
+		
 		<%/*httpsession이 있을 경우 나타날 로그아웃*/ %>
 				<c:if test="${MEMBERLOGIN!=null}">
-					<li class="login">로그아웃</li>
+					<li class="home" onclick="logout()" >로그아웃</li>
 				</c:if>
 		
 		<%/*httpsession이 있을 경우 나타날 마이페이지*/ %>
 				<c:if test="${MEMBERLOGIN!=null}">
-					<li class="login">마이페이지</li>
+					<li class="mypage">마이페이지</li>
 				</c:if>
 				
 			</ul>

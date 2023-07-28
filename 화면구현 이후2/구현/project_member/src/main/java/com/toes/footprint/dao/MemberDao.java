@@ -7,11 +7,12 @@ import com.toes.footprint.models.MemberDto;
 
 public interface MemberDao {
 	
+//	@@@@@@@@@@테이블생성@@@@@@@@@@@@@@
 	
 //	맴버테이블 생성 
 	public void creat_member_table(String dumy);
 	
-	
+//	@@@@@@@@@@@로그인@@@@@@@@@@@@@
 	
 //	가장 최근에 만들어진 아이디 호출
 	@Select("SELECT MAX(mb_seq) FROM tb_member")
@@ -42,11 +43,12 @@ public interface MemberDao {
 	
 	
 	
+//	@@@@@@@회원가입@@@@@@@@
 	
 	
 	
 	
-//  회원가입
+//  회원가입 입력
 	public int insert(MemberDto memberDto);
 	
 //	회원가입 아이디 중복방지
@@ -57,7 +59,7 @@ public interface MemberDao {
 	@Select("SELECT * FROM tb_member WHERE mb_name = #{name} AND mb_tel = #{tel}  ")
 	public MemberDto findnameandtel(@Param("name") String name, @Param("tel")String tel);
 
-// 회원가입 닉네임 중복방지
+//  회원가입 닉네임 중복방지
 	@Select("SELECT * FROM tb_member WHERE mb_nick = #{nickname} ")
 	public MemberDto findnickname(String nickname);
 
@@ -66,7 +68,12 @@ public interface MemberDao {
 	public MemberDto findemail(String email);
 
 	
-//	정보수정
+	
+	
+	
+	
+	
+//	마이페이지
 	public int update(MemberDto memberDto);
 
 	

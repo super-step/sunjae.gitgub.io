@@ -26,6 +26,8 @@ public interface MemberService {
     MemberDto findIdByEmail(MemberDto memberDto) throws Exception;
 
 	public MemberDto findtoid(MemberDto memberDto);
+
+	public int update(MemberDto memberDto);
 	
 	
 }

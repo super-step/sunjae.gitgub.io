@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import com.toes.footprint.models.MemberDto;
@@ -16,9 +15,8 @@ import com.toes.footprint.service.MemberService;
 
 import lombok.extern.slf4j.Slf4j;
 
-
 //@SessionAttributes("MEMBERLOGINMODAL")
-@SessionAttributes("MEMBERLOGIN")
+//@SessionAttributes("MEMBERLOGIN")
 @Slf4j
 @Controller
 public class HomeController {
@@ -32,10 +30,19 @@ public class HomeController {
 
 //	메인화면
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Model model,  HttpSession httpSession) {
+	public String home(Model model, HttpSession httpSession) {
 		MemberDto memberDto = (MemberDto) httpSession.getAttribute("MEMBERLOGIN");
-		
+
 		return "/member/home";
+	}
+
+//	로그아웃 (httpSession삭제)이건 아직 미완성
+	@RequestMapping(value = "/logout", method = RequestMethod.POST)
+	public String logout(HttpSession httpSession) {
+		// HttpSession을 무효화하여 로그아웃 처리
+		httpSession.invalidate();
+		// 홈페이지로 리다이렉트
+		return "redirect:/";
 	}
 
 //	회원가입 페이지 GET
@@ -68,12 +75,10 @@ public class HomeController {
 //	로그인페이지 GET
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String login(@RequestParam(name = "ERROR", required = false) String errorMessage,
-			@ModelAttribute("MEMBERLOGIN") MemberDto memberDto, Model model, String modal, String id) {
-
+			@ModelAttribute("MEMBERLOGIN") MemberDto memberDto, Model model) {
 		if (errorMessage != null) {
 			model.addAttribute("ERROR", errorMessage);
 		}
-
 		return "/member/login";
 	}
 
@@ -90,12 +95,12 @@ public class HomeController {
 		} catch (Exception e) {
 			return "redirect:/login?ERROR=" + e.getMessage();
 		}
-
 	}
 
 	@RequestMapping(value = "/loginmodal", method = RequestMethod.GET)
 	public String loginmodal(@RequestParam(name = "ERROR", required = false) String errorMessage,
-			@ModelAttribute("MEMBERLOGIN") MemberDto memberDto, Model model,SessionStatus sessionStatus,HttpSession httpSession) {
+			@ModelAttribute("MEMBERLOGIN") MemberDto memberDto, Model model, SessionStatus sessionStatus,
+			HttpSession httpSession) {
 
 //		log.debug("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@{}",memberDto.toString());
 		if (errorMessage != null) {
@@ -103,14 +108,14 @@ public class HomeController {
 		}
 		return "/member/loginmodal";
 	}
-	
-	
+
 	@RequestMapping(value = "/loginmodal", method = RequestMethod.POST)
-	public String loginmodal(@ModelAttribute("MEMBERLOGIN") MemberDto memberDto, Model model,SessionStatus sessionStatus) {
+	public String loginmodal(@ModelAttribute("MEMBERLOGIN") MemberDto memberDto, Model model,
+			SessionStatus sessionStatus) {
 		MemberDto resultDto = null;
 		try {
 			resultDto = memberService.findIdByEmail(memberDto);
-			model.addAttribute("MEMBERLOGIN",resultDto);
+			model.addAttribute("MEMBERLOGIN", resultDto);
 //			impl에서 에러메세지를 설정 안한다. 
 //			catch문에서는 impl에서 입력한 message를 리턴하고 있는데 이건 실패했을 경우다
 //			try문에서는 직접적으로 "OK"라는 값을 리턴해서 JSP에서 OK라는 메세지를 받게 하는 것이다.
@@ -120,29 +125,68 @@ public class HomeController {
 			return "redirect:/loginmodal?ERROR=" + e.getMessage();
 		}
 	}
-	
+
 //
 ////	로그인모달에 객체를 넣어주기 위한 메서드
 //	@ModelAttribute("MEMBERLOGINMODAL")
 //	public MemberDto loginModalMemberDto() {
 //		return MemberDto.builder().build();
 //	}
-	
+
 //	 마이페이지
 	@RequestMapping(value = "/mypage", method = RequestMethod.GET)
-	public String loginhome(String mb_id, Model model, HttpSession httpSession) {
+	public String mypage(@ModelAttribute("MEMBERLOGIN") MemberDto memberDto, HttpSession httpSession) {
 //		로그인을 위한 @ModelAttribute를 dto로 형변환
-		MemberDto memberDto = (MemberDto) httpSession.getAttribute("MEMBERLOGIN");
-
-//		만약 로그인이 안됐을 경우 전달하는 페이지
+//		memberDto = (MemberDto) httpSession.getAttribute("MEMBERLOGIN");
 		if (memberDto == null) {
 			// 로그인 안됨
-			return "redirect:/member/login";
+			return "redirect:/login";
 		}
+
+//		만약 로그인이 안됐을 경우 전달하는 페이지
+
+		log.debug("GET**********************{}",memberDto.toString());
 //	로그인이 되면 이동할 페이지
 		return "/member/mypage";
 	}
 
+	
+//	 마이페이지
+	@RequestMapping(value = "/mypage", method = RequestMethod.POST)
+	public String mypage(@ModelAttribute("MEMBERLOGIN") MemberDto memberDto, Model model, HttpSession httpSession) {
+
+		//		로그인을 위한 @ModelAttribute를 dto로 형변환
+		memberDto = (MemberDto) httpSession.getAttribute("MEMBERLOGIN");
+		if (memberDto == null) {
+			// 로그인 안됨
+			return "redirect:/login";
+		}
+		log.debug(memberDto.toString());
+		try {
+			int result = memberService.update(memberDto);
+			log.debug("POST 변경 후**********************{}",memberDto.toString());
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+//		만약 로그인이 안됐을 경우 전달하는 페이지
+
+//	로그인이 되면 이동할 페이지
+		return "/member/mypage";
+	}
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 //	개발자소개 페이지
 	@RequestMapping(value = "/developer", method = RequestMethod.GET)
 	public String profile(Model model) {

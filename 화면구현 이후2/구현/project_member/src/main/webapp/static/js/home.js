@@ -11,4 +11,18 @@ document.addEventListener("DOMContentLoaded", () => {
       main_nav.classList.remove("main_nav_open");
     }
   });
+
+  function logout() {
+    // 서버로 로그아웃 요청을 보내는 Ajax
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "/logout", true);
+    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+        // 로그아웃 성공 시, 홈페이지로 이동
+        window.location.href = "/";
+      }
+    };
+    xhr.send();
+  }
 });

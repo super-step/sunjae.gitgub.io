@@ -157,4 +157,9 @@ public class MemberServiceImplV1 implements MemberService {
 		return null;
 	}
 
+	@Override
+	public int update(MemberDto memberDto) {
+		return memberDao.update(memberDto);
+	}
+
 }

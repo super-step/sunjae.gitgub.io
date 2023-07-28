@@ -10,6 +10,11 @@ document.addEventListener("DOMContentLoaded", () => {
   let mPPostNumber = document.querySelector("span#mPPostNumber");
   let mPPostManage = document.querySelector("div.mPPostManage");
 
+
+
+
+
+  
   let member = JSON.parse(sessionStorage.getItem("member"));
   let snsCotents = JSON.parse(sessionStorage.getItem("snsCotents"));
   const sessionUser = JSON.parse(sessionStorage.getItem("user"));
