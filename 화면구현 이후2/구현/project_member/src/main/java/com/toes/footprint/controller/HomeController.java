@@ -156,22 +156,25 @@ public class HomeController {
 	public String mypage(@ModelAttribute("MEMBERLOGIN") MemberDto memberDto, Model model, HttpSession httpSession) {
 
 		//		로그인을 위한 @ModelAttribute를 dto로 형변환
-		memberDto = (MemberDto) httpSession.getAttribute("MEMBERLOGIN");
-		if (memberDto == null) {
-			// 로그인 안됨
+		//		resultDto 는 로그인해서 가져온 dto값
+	MemberDto resultDto = (MemberDto) httpSession.getAttribute("MEMBERLOGIN");
+	// 로그인 안됨, resultDto는 그저 현재 로그인 세션을 보여주는 dto값일 뿐이다
+		if (resultDto == null) {
 			return "redirect:/login";
 		}
-		log.debug(memberDto.toString());
+		
+		log.debug("########################################{}",resultDto);
+		log.debug("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$${}",memberDto);
+
 		try {
 			int result = memberService.update(memberDto);
-			log.debug("POST 변경 후**********************{}",memberDto.toString());
+//		memberDTO는 내가 input tag에서 입력한 값으로 그 값을 resultDto에 넣어주는 것이 아니라 session에 넣어주어야 한다.			
+			log.debug("변경한 값**********************{}",memberDto.toString());
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
-//		만약 로그인이 안됐을 경우 전달하는 페이지
-
+		
 //	로그인이 되면 이동할 페이지
 		return "/member/mypage";
 	}

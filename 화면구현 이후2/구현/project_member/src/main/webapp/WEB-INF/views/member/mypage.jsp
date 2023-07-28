@@ -12,8 +12,6 @@
 	rel="stylesheet">
 <link href="${rootPath}/static/css/mypagemodal.css?${version}"
 	rel="stylesheet">
-<script src="${rootPath}/static/js/myPage.js?${version}"></script>
-<script src="${rootPath}/static/js/myPageModal.js?${version}"></script>
 <body>
 	<header>
 		<img src="/image/logo_footprint.png" alt="" />
@@ -82,12 +80,11 @@
 								%>
 
 
-								<form:form  modelAttribute="MEMBERLOGIN">
+								<form:form modelAttribute="MEMBERLOGIN">
 									<div>닉네임 :</div>
-									<form:input path="mb_nick" placeholder="닉네임 입력하셔야 해요 ㅠㅠ" 
-									name="mb_nick"
-									 class="mPNowNic" pattern="^\S.*$" title="빈칸은 안돼용 ㅠ"  
-									 required="true"/>사료 싫어하는 고양이
+									<form:input path="mb_nick" placeholder="닉네임 입력하셔야 해요 ㅠㅠ"
+										name="mb_nick" class="mPNowNic" pattern="^\S.*$"
+										title="빈칸은 안돼용 ㅠ" required="true" />사료 싫어하는 고양이
 									<div class="mPNicChange mPBtn">변경하기</div>
 
 									<button id="my_modal_change_btn">변경하기</button>
@@ -108,11 +105,16 @@
 								%>
 								<form:form action="" modelAttribute="MEMBERLOGIN">
 									<div>비밀번호 변경</div>
-									<form:input path="mb_password" placeholder="비밀번호 입력하셔야 해요 ㅠㅠ" name="myChangeValue" class="mPPWChange mPBtn" pattern="^\S.*$" title="빈칸안돼용 ㅠ"  required="true"/>변경하기
+									<form:input path="mb_password" 
+										placeholder="비밀번호 입력하셔야 해요 ㅠㅠ"
+										name="mb_password" class="mPPWChange mPBtn" 
+										pattern="^\S.*$"
+										title="빈칸안돼용 ㅠ" 
+										required="true" />변경하기
 
 							<button id="my_modal_change_btn">변경하기</button>
 
-							</form:form>
+								</form:form>
 							</div>
 							<%
 							/*form 끝*/
