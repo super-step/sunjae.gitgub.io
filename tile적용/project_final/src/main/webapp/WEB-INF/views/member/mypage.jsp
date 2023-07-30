@@ -58,7 +58,7 @@
 						%>
 
 
-						<form:form modelAttribute="MEMBERLOGIN">
+						<form:form modelAttribute="MEMBERr">
 							<div>닉네임 :</div>
 							<form:input path="mb_nick" placeholder="닉네임 입력하셔야 해요 ㅠㅠ"
 								name="mb_nick" class="mPNowNic" pattern="^\S.*$"
@@ -81,7 +81,7 @@
 						<%
 						/*form 시작*/
 						%>
-						<form:form action="" modelAttribute="MEMBERLOGIN">
+						<form:form action="" modelAttribute="MEMBERr">
 							<div>비밀번호 변경</div>
 							<form:input path="mb_password" placeholder="비밀번호 입력하셔야 해요 ㅠㅠ"
 								name="mb_password" class="mPPWChange mPBtn" pattern="^\S.*$"
