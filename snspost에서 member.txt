@@ -1,0 +1,7 @@
+snspost의 .sp_mbseq 와  tb_member의 mb_seq 의 값이 같다면 조회하는 쿼리
+
+
+SELECT *
+FROM tb_snspost
+JOIN tb_member ON tb_snspost.sp_mbseq = tb_member.mb_seq
+WHERE tb_snspost.sp_mbseq = '조회하고자 하는 회원일련번호';

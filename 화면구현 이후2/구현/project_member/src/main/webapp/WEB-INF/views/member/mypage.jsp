@@ -89,7 +89,9 @@
 
 									<button id="my_modal_change_btn">변경하기</button>
 
-								</form:form>
+								<form:input path="mb_id" placeholder="닉네임 입력하셔야 해요 ㅠㅠ"
+										name="mb_id" class="mPNowNic" pattern="^\S.*$"
+										title="빈칸은 안돼용 ㅠ" required="true" />
 								<%
 								/*form 끝*/
 								%>
@@ -103,7 +105,7 @@
 								<%
 								/*form 시작*/
 								%>
-								<form:form action="" modelAttribute="MEMBERLOGIN">
+								
 									<div>비밀번호 변경</div>
 									<form:input path="mb_password" 
 										placeholder="비밀번호 입력하셔야 해요 ㅠㅠ"

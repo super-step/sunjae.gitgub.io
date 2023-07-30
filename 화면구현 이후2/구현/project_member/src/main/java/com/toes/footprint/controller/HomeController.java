@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.support.SessionStatus;
 
+import com.toes.footprint.dao.MemberDao;
 import com.toes.footprint.models.MemberDto;
 import com.toes.footprint.service.MemberService;
 
@@ -22,10 +23,13 @@ import lombok.extern.slf4j.Slf4j;
 public class HomeController {
 
 	protected final MemberService memberService;
-
-	public HomeController(MemberService memberService) {
+	protected final MemberDao memberDao;
+	
+	
+public HomeController(MemberService memberService, MemberDao memberDao) {
 		super();
 		this.memberService = memberService;
+		this.memberDao = memberDao;
 	}
 
 //	메인화면
@@ -90,7 +94,8 @@ public class HomeController {
 			memberDto = memberService.login(memberDto);
 //			밑에서 만든 @ModelAttribute("MEMBERLOGIN") 을 HttpSession에 적용
 //			별 일이 없는 이상 내역이 삭제되지 않음 
-			httpSession.setAttribute("MEMBERLOGIN", memberDto);
+			httpSession.setAttribute("MEMBER", memberDto);
+			log.debug("로그인완료!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!{}",memberDto);
 			return "redirect:/";
 		} catch (Exception e) {
 			return "redirect:/login?ERROR=" + e.getMessage();
@@ -137,7 +142,7 @@ public class HomeController {
 	@RequestMapping(value = "/mypage", method = RequestMethod.GET)
 	public String mypage(@ModelAttribute("MEMBERLOGIN") MemberDto memberDto, HttpSession httpSession) {
 //		로그인을 위한 @ModelAttribute를 dto로 형변환
-//		memberDto = (MemberDto) httpSession.getAttribute("MEMBERLOGIN");
+		memberDto = (MemberDto) httpSession.getAttribute("MEMBERLOGIN");
 		if (memberDto == null) {
 			// 로그인 안됨
 			return "redirect:/login";
@@ -158,21 +163,51 @@ public class HomeController {
 		//		로그인을 위한 @ModelAttribute를 dto로 형변환
 		//		resultDto 는 로그인해서 가져온 dto값
 	MemberDto resultDto = (MemberDto) httpSession.getAttribute("MEMBERLOGIN");
+	
 	// 로그인 안됨, resultDto는 그저 현재 로그인 세션을 보여주는 dto값일 뿐이다
 		if (resultDto == null) {
 			return "redirect:/login";
 		}
 		
-		log.debug("########################################{}",resultDto);
-		log.debug("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$${}",memberDto);
-
+		log.debug("기존 dto값 ########################################{}",resultDto);
+		log.debug("입력한 dto값$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$${}",memberDto);
+//		int result= memberService.update(memberDto);;
+		
+		
+		int result = memberService.update(memberDto);
+		int result2= memberDao.update(memberDto);
+		memberService.update(memberDto);
+		
+		
+		
+		
+		log.debug("result2에 입력한 값!@#!@#!@#!@#!@#!@#!@#!@#!@#!@#!@#!@#!@{}",result);
+		log.debug("result2에 입력한 값!@#!@#!@#!@#!@#!@#!@#!@#!@#!@#!@#!@#!@{}",result2);
+		log.debug("result2에 입력한 값!@#!@#!@#!@#!@#!@#!@#!@#!@#!@#!@#!@#!@{}",memberService.update(memberDto));
 		try {
-			int result = memberService.update(memberDto);
+			
+			memberService.update(memberDto);
+			
+			
+			
 //		memberDTO는 내가 input tag에서 입력한 값으로 그 값을 resultDto에 넣어주는 것이 아니라 session에 넣어주어야 한다.			
-			log.debug("변경한 값**********************{}",memberDto.toString());
+			log.debug("input에서 넣을 값**********************{}",memberDto.toString());
+			if(result>0) {
+				log.debug("try업데이트 성공~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+				return "redirect:/";
+			}else if(result<=0) {
+				log.debug("try업데이트 실패~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+				return "redirect:/mypage";
+			}
+			
 		} catch (Exception e) {
+			
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			if(result>0) {
+				log.debug("catch업데이트 성공~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+			}else if(result<=0) {
+				log.debug("catch업데이트 실패~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+			}
 		}
 		
 //	로그인이 되면 이동할 페이지
