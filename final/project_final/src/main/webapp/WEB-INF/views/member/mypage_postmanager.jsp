@@ -10,28 +10,18 @@
 	<article>
 
 
-		<h1>도서 정보 관리</h1>
-		<table class="book">
+		<h1>나의 발자국 보기</h1>
+		<table class="memberlist">
 			<tr>
-				<th>도서코드</th>
-				<th>도서명</th>
-				<th>저자</th>
-				<th>출판사</th>
-				<th>대여가격</th>
+				<th class="">글번호</th>
+				<th class="">제목</th>
+				<th class="">입력날짜</th>
 			</tr>
-
-			<%
-			/*
-					<!-- 도서정보가 비어있다면 -->
-					<!-- controller에 BOOKS로 받은걸 BOOK으로 바꿔 사용 -->
-					*/
-			%>
-
 			<c:forEach items="${MYPAGEPOST}" var="MYPAGEPOST">
 				<tr>
-					<td>${MYPAGEPOST.sp_seq}</td>
-					<td>${MYPAGEPOST.sp_title}</td>
-					<td>${MYPAGEPOST.sp_cdate}</td>
+					<td class="">${MYPAGEPOST.sp_seq}</td>
+					<td class="">${MYPAGEPOST.sp_title}</td>
+					<td class="">${MYPAGEPOST.sp_cdate}</td>
 				</tr>
 			</c:forEach>
 		</table>
