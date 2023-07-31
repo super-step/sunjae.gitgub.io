@@ -22,27 +22,7 @@
 				<div class="mPProfileLogout">로그아웃</div>
 			</div>
 			<div class="myPageUserHeart">
-				<div id="MyALLheart">
-					<div class="mPLikeTitle">좋아하는 글</div>
-					<img src="/image/icon_heart.png" alt="" />
-					<div class="mPLikeCount">
-						<span id="mPFavoriteLike ">9999</span>개
-					</div>
-				</div>
-				<div id="MyALLheart">
-					<div class="mPLikeTitle">내가 받은 하트</div>
-					<img src="/image/icon_heart.png" alt="" />
-					<div class="mPLikeCount">
-						<span id="mPReceivedLike">9999</span>개
-					</div>
-				</div>
-				<div id="MyALLheart">
-					<div class="mPLikeTitle">가장많이받은하트</div>
-					<img src="/image/icon_heart.png" alt="" />
-					<div class="mPLikeCount">
-						<span id="mPMostHeart">9999</span>개
-					</div>
-				</div>
+				
 			</div>
 		</div>
 		<div class="myPageContent">

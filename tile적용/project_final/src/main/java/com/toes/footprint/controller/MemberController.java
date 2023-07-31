@@ -191,22 +191,43 @@ public class MemberController {
 		return "member/mypage";
 	}
 
+	
+	
+	@RequestMapping(value = "/mypage_postmanager", method = RequestMethod.GET)
+	public String mypage_postmanager(HttpSession httpSession) {
+		
+		MemberDto sessionDto = (MemberDto) httpSession.getAttribute("PUTMEMBER");
+		return "member/mypage_postmanager";
+	}
+	
+	
+	
+	@RequestMapping(value = "/mypage_postmanager", method = RequestMethod.POST)
+	public String mypage_postmanager(HttpSession httpSession, Model model) {
+		
+		MemberDto sessionDto = (MemberDto) httpSession.getAttribute("PUTMEMBER");
+		
+		
+		
+		return "member/mypage_postmanager";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 //	로그인에 객체를 넣어주기 위한 메서드
 	@ModelAttribute("MEMBERLOGIN")
 	public MemberDto loginMemberDto() {
 		return MemberDto.builder().build();
 	}
-//
-////	로그인모달에 객체를 넣어주기 위한 메서드
-//	@ModelAttribute("MEMBERLOGINMODAL")
-//	public MemberDto loginModalMemberDto() {
-//		return MemberDto.builder().build();
-//	}
-//
-////	회원가입에 객체를 넣어주기 위한 메서드
-//	@ModelAttribute("MEMBER")
-//	public MemberDto newMember() {
-//		return MemberDto.builder().build();
-//	}
 
+	
+	
 }
