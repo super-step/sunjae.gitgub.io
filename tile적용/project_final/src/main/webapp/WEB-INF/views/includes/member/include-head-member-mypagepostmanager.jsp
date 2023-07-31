@@ -3,4 +3,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set value="${pageContext.request.contextPath}" var="rootPath" />
 
+
+<link rel="stylesheet" href="myPage.css" />
+    <link rel="stylesheet" href="myPage_PostManage.css" />
+
+
+<link href="${rootPath}/static/css/mypage.css?${version}"  rel="stylesheet">
 <link href="${rootPath}/static/css/mypage.css?${version}"  rel="stylesheet">

@@ -159,7 +159,7 @@ public class HomeController {
 	
 //	 마이페이지
 	@RequestMapping(value = "/mypage", method = RequestMethod.POST)
-	public String mypage(   @ModelAttribute("MEMBERLOGIN")MemberDto memberDto, Model model, HttpSession httpSession) {
+	public String mypage(String mb_nick,String mb_password, Model model, HttpSession httpSession) {
 
 		//		로그인을 위한 @ModelAttribute를 dto로 형변환
 		//		resultDto 는 로그인해서 가져온 dto값
@@ -171,15 +171,15 @@ public class HomeController {
 		}
 		
 		log.debug("변환전 값########################################{}",resultDto);
-		log.debug("변경할 닉네임 ################## {}", memberDto.getMb_nick());
-		log.debug("변경할 비번 ###################### {} ", memberDto.getMb_password());
+		log.debug("변경할 닉네임 ################## {}", mb_nick);
+		log.debug("변경할 비번 ###################### {} ", mb_password);
 //		log.debug("변환 후 값$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$${}",memberDto);
 
 		try {
-			if (memberDto.getMb_nick() != null) {
-				resultDto.setMb_nick(memberDto.getMb_nick());
-			} else if(memberDto.getMb_password() != null) {
-				resultDto.setMb_password(memberDto.getMb_password());
+			if (mb_nick != null) {
+				resultDto.setMb_nick(mb_nick);
+			} else if(mb_password != null) {
+				resultDto.setMb_password(mb_password);
 			} else {
 				log.debug("오류발생 ******************");
 				return "redirect:/";

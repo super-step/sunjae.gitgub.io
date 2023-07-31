@@ -44,10 +44,6 @@ public class MemberServiceImplV1 implements MemberService {
 //			아이디는 있는데 패스워드가 틀린경우-> 이거 솔직히 아직도 이해 안감
 //			memberDto에서 모든  PASSWORD를 뒤지는건가? 그리고 resultDto 에
 //			PASSWORD를 저장한 적도 없잖아
-//			 위에 대한 답변-> select하는 순간 조회된  tuple을 가져옴 즉 dto를 가져오는 것.
-//			그러니 값이 resultDto에 input을 검색하면 값이 담기는거다 밑의 유효성 검사는 resultdto가 
-//			담긴 상태에서 테스트를 하는 거고
-//			그러니 
 		} else {
 			if (resultDto != null && !resultDto.getMb_password().equals(memberDto.getMb_password())) {
 				throw new Exception("NOTPASSWORD");
