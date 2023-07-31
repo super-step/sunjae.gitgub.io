@@ -41,9 +41,14 @@
 						</form:form>
 					</div>
 				</div>
+				
 			</div>
 		</div>
 	</div>
+	
+						<a id="login_join" class="textlist" href="${rootPath}/member/mypage_postmanager">발자국
+							관리하기</a>
+					
 	<div class="myPageImgContainer">
 		<img src="/image/자전거.png" alt="" />
 	</div>
@@ -51,10 +56,7 @@
 		<div class="modal-window">
 			<div class="my_modal_header">
 				<div class="my_modal_title">
-					<h2>
-						<a id="login_join" href="${rootPath}/member/mypage_postmanager">발자국
-							관리하기</a>
-					</h2>
+					
 				</div>
 			</div>
 			<div class="my_modal_content"></div>
