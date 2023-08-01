@@ -1,5 +1,60 @@
 div.memberlist {
   width: 70%;
-  height: 50%;
-  background-color: bisque;
+  height: 100%;
+  margin: auto;
+  background-color: rgb(254, 242, 219);
+}
+
+.h1title {
+  font-size: 30px;
+  font-weight: bold;
+}
+th.seq {
+  color: black;
+  font-size: 25px;
+  font-weight: bold;
+  margin-left: 20px;
+}
+table.table1 {
+  border: 1px solid black;
+  width: 100%;
+  height: 100%;
+}
+th.title {
+  color: black;
+  font-size: 25px;
+  font-weight: bold;
+  margin-left: 50px;
+}
+
+th.content {
+  color: black;
+  font-size: 25px;
+  font-weight: bold;
+  margin-left: 50px;
+}
+
+th.date {
+  color: black;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+td.textseq {
+  font-size: 15px;
+  margin-left: 20px;
+}
+
+td.texttitle {
+  font-size: 15px;
+  margin-left: 50px;
+}
+
+td.textcontent {
+  font-size: 15px;
+  margin-left: 50px;
+}
+
+td.textdate {
+  font-size: 15px;
 }

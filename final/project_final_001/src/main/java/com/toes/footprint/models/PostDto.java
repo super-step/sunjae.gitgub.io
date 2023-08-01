@@ -27,3 +27,7 @@ public class PostDto {
 	private List<FileDto> sp_imgs;
 	
 }
+
+
+
+
