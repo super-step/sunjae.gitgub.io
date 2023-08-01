@@ -213,19 +213,13 @@ public class MemberController {
 			return "redirect:/member/login";
 		}
 		
+		
 		List<PostDto> postDtoList = postService.findByMbseq(resultDto.getMb_seq());
 		log.debug("postDtoList 1234 : {}", postDtoList.toString());
 		model.addAttribute("MYPAGEPOST",postDtoList);
 //		model.addAttribute("POSTLIST", postDtoList);
 		return "member/mypage_postmanager";
-	
-
-	
 	}
-	
-	
-	
-	
 	
 	
 //	로그인에 객체를 넣어주기 위한 메서드

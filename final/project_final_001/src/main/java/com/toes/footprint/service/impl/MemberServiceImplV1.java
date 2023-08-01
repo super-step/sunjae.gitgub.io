@@ -63,6 +63,8 @@ public class MemberServiceImplV1 implements MemberService {
 		} else if (resultDto != null && !resultDto.getMb_email().equals(memberDto.getMb_email())) {
 			throw new Exception("NOTEMAIL");
 		}
+		
+		
 		else if (resultDto != null && resultDto.getMb_email().equals(memberDto.getMb_email())) {
 			return resultDto;
 //			이건 dto값을 넘겨야 했는데 에러메세지만 넘겨주니 값이 출력되지 않았다 else if에서 조건이 만족됐다면 resultDto 값이 넘겨진줄 알았으나
